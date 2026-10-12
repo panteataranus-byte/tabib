@@ -1,0 +1,2007 @@
+{
+ "generated": "2026-10-12",
+ "specialties": {
+  "eyes": {
+   "en": "Ophthalmology (eyes)",
+   "ar": "طب وجراحة العيون",
+   "ku": "پزیشکی چاو"
+  },
+  "optometry": {
+   "en": "Optometry (eye tests)",
+   "ar": "فحص النظر والبصريات",
+   "ku": "پشکنینی بینایی"
+  },
+  "ent": {
+   "en": "Ear, nose & throat",
+   "ar": "أنف وأذن وحنجرة",
+   "ku": "گوێ و لووت و قوڕگ"
+  },
+  "ortho": {
+   "en": "Orthodontics",
+   "ar": "تقويم الأسنان",
+   "ku": "ڕێکخستنی ددان"
+  },
+  "dental": {
+   "en": "Dentistry",
+   "ar": "طب الأسنان",
+   "ku": "ددانسازی"
+  },
+  "obgyn": {
+   "en": "Women's health & pregnancy",
+   "ar": "النسائية والتوليد",
+   "ku": "ئافرەتان و منداڵبوون"
+  },
+  "surgery": {
+   "en": "General surgery",
+   "ar": "الجراحة العامة",
+   "ku": "نەشتەرگەری گشتی"
+  },
+  "urology": {
+   "en": "Urology",
+   "ar": "جراحة المسالك البولية",
+   "ku": "نەشتەرگەری میزەڕۆ"
+  },
+  "neuro": {
+   "en": "Neurology (nerves & brain)",
+   "ar": "أمراض الأعصاب",
+   "ku": "نەخۆشییەکانی دەمار و مێشک"
+  },
+  "gastro": {
+   "en": "Stomach & liver",
+   "ar": "الجهاز الهضمي والكبد",
+   "ku": "کۆئەندامی هەرس و جگەر"
+  },
+  "psych": {
+   "en": "Psychiatry",
+   "ar": "الطب النفسي",
+   "ku": "پزیشکی دەروونی"
+  },
+  "radiology": {
+   "en": "Radiology (scans)",
+   "ar": "الأشعة",
+   "ku": "تیشکناسی"
+  },
+  "cardio": {
+   "en": "Cardiology (heart)",
+   "ar": "أمراض القلب",
+   "ku": "نەخۆشییەکانی دڵ"
+  },
+  "derm": {
+   "en": "Dermatology (skin)",
+   "ar": "الأمراض الجلدية",
+   "ku": "نەخۆشییەکانی پێست"
+  },
+  "hemonc": {
+   "en": "Blood diseases & cancer",
+   "ar": "أمراض الدم والأورام",
+   "ku": "نەخۆشییەکانی خوێن و شێرپەنجە"
+  },
+  "occup": {
+   "en": "Occupational medicine",
+   "ar": "طب العمل",
+   "ku": "پزیشکی کار"
+  },
+  "general": {
+   "en": "Specialty not stated",
+   "ar": "تخصص غير محدد",
+   "ku": "پسپۆڕی دیار نییە"
+  }
+ },
+ "places": [
+  {
+   "id": "rizgary",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Rizgary Teaching Hospital",
+    "ar": "مستشفى رزكاري التعليمي",
+    "ku": "نەخۆشخانەی فێرکاری ڕزگاری"
+   },
+   "address": {
+    "en": "Peshawa Qazi, 100m St area, near Hawler Medical University",
+    "ar": "شارع پێشەوا قاضي، منطقة شارع 100م، قرب جامعة هولير الطبية",
+    "ku": "پێشەوا قازی، ناوچەی شەقامی 100 مەتری، نزیک زانکۆی پزیشکیی هەولێر"
+   },
+   "phones": [
+    "+964 66 227 3882"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Teaching hospital: general & colorectal surgery, neurology, radiology, urology, stomach & liver centre",
+    "ar": "مستشفى تعليمي: الجراحة العامة والقولون، الأعصاب، الأشعة، المسالك البولية، مركز الجهاز الهضمي والكبد",
+    "ku": "نەخۆشخانەی فێرکاری: نەشتەرگەری گشتی، دەمار، تیشک، میزەڕۆ، سەنتەری هەرس و جگەر"
+   },
+   "source": "UK FCDO list of English-speaking doctors in Iraq (gov.uk, updated 13 Jun 2023); kurdistan24.net",
+   "confidence": "high"
+  },
+  {
+   "id": "par",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "PAR Private Hospital",
+    "ar": "مستشفى بار الأهلي",
+    "ku": "نەخۆشخانەی تایبەتی پار"
+   },
+   "address": {
+    "en": "60 Meter Road, Mamostayan district",
+    "ar": "شارع 60 متري، حي ماموستايان",
+    "ku": "شەقامی 60 مەتری، گەڕەکی مامۆستایان"
+   },
+   "phones": [
+    "+964 66 210 7001",
+    "+964 66 210 7002"
+   ],
+   "phoneNote": null,
+   "email": "info@parhosptial.org",
+   "departments": {
+    "en": "Radiology, general surgery, heart & chest centre, digestive unit, women's health, children, kidneys, physiotherapy, lab, ICU, 24/7 emergency",
+    "ar": "الأشعة، الجراحة العامة، مركز القلب والصدر، وحدة الجهاز الهضمي، النسائية، الأطفال، الكلى، العلاج الطبيعي، المختبر، العناية المركزة، طوارئ على مدار الساعة",
+    "ku": "تیشک، نەشتەرگەری گشتی، سەنتەری دڵ و سنگ، بەشی هەرس، ئافرەتان، منداڵان، گورچیلە، چارەسەری سروشتی، تاقیگە، چاودێری چڕ، فریاکەوتنی 24 کاتژمێری"
+   },
+   "source": "UK FCDO list of English-speaking doctors in Iraq (gov.uk, updated 13 Jun 2023); cihanuniversity.edu.iq",
+   "confidence": "high",
+   "emergency24": true
+  },
+  {
+   "id": "zheen",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Zheen International Hospital",
+    "ar": "مستشفى ژين الدولي",
+    "ku": "نەخۆشخانەی نێودەوڵەتیی ژین"
+   },
+   "address": {
+    "en": "Koya Main Street",
+    "ar": "شارع كويه الرئيسي",
+    "ku": "شەقامی سەرەکیی کۆیە"
+   },
+   "phones": [
+    "+964 66 255 2518",
+    "+964 66 223 2144"
+   ],
+   "phoneNote": null,
+   "email": "info@zheenhospital.com",
+   "departments": null,
+   "source": "UK FCDO list of English-speaking doctors in Iraq (gov.uk, updated 13 Jun 2023)",
+   "confidence": "high"
+  },
+  {
+   "id": "shifa",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Shifa Hospital",
+    "ar": "مستشفى الشفاء",
+    "ku": "نەخۆشخانەی شیفا"
+   },
+   "address": {
+    "en": "100 Meter Road, Qazi Mohammed",
+    "ar": "شارع 100 متري، قاضي محمد",
+    "ku": "شەقامی 100 مەتری، قازی محەمەد"
+   },
+   "phones": [
+    "+964 66 253 2225"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "UK FCDO list of English-speaking doctors in Iraq (gov.uk, updated 13 Jun 2023)",
+   "confidence": "high"
+  },
+  {
+   "id": "daik",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Daik Hospital",
+    "ar": "مستشفى دايك",
+    "ku": "نەخۆشخانەی دایک"
+   },
+   "address": {
+    "en": "Koya Road",
+    "ar": "طريق كويه",
+    "ku": "ڕێگای کۆیە"
+   },
+   "phones": [
+    "+964 66 227 0479"
+   ],
+   "phoneNote": null,
+   "email": "daikhospital@gmail.com",
+   "departments": null,
+   "source": "UK FCDO list of English-speaking doctors in Iraq (gov.uk, updated 13 Jun 2023)",
+   "confidence": "high"
+  },
+  {
+   "id": "cmc",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Consultant Medical City Private Hospital (CMC)",
+    "ar": "مستشفى مدينة الاستشاريين الطبية الأهلي (CMC)",
+    "ku": "نەخۆشخانەی تایبەتیی شاری پزیشکیی ڕاوێژکاران (CMC)"
+   },
+   "address": {
+    "en": "Koya Road",
+    "ar": "طريق كويه",
+    "ku": "ڕێگای کۆیە"
+   },
+   "phones": [
+    "+964 750 184 0005",
+    "+964 750 184 0006"
+   ],
+   "phoneNote": null,
+   "email": "cmcprivatehospital@cmcph.net",
+   "departments": {
+    "en": "Eye centre (12 specialists), polyclinic with 25+ clinics, children's surgery",
+    "ar": "مركز العيون (12 أخصائياً)، عيادات استشارية تضم أكثر من 25 عيادة، جراحة الأطفال",
+    "ku": "سەنتەری چاو (12 پسپۆڕ)، پۆلیکلینیک بە زیاتر لە 25 کلینیک، نەشتەرگەری منداڵان"
+   },
+   "source": "Hospital's own brochure (undated PDF)",
+   "confidence": "medium"
+  },
+  {
+   "id": "swedish",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Swedish Specialty Hospital",
+    "ar": "المستشفى السويدي التخصصي",
+    "ku": "نەخۆشخانەی پسپۆڕیی سویدی"
+   },
+   "address": {
+    "en": "100m Road / Peshawa Qazi, Ankawa crossing",
+    "ar": "شارع 100م / پێشەوا قاضي، تقاطع عنكاوا",
+    "ku": "شەقامی 100 مەتری / پێشەوا قازی، چوارڕیانی عەنکاوە"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Hosts the International SOS clinic",
+    "ar": "تضم عيادة إنترناشونال إس أو إس",
+    "ku": "کلینیکی International SOS لێرەیە"
+   },
+   "source": "internationalsos.com; FWD hospital list 2024",
+   "confidence": "medium"
+  },
+  {
+   "id": "lokman",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Lokman Hekim Erbil Hospital",
+    "ar": "مستشفى لقمان حكيم أربيل",
+    "ku": "نەخۆشخانەی لوقمان حەکیم هەولێر"
+   },
+   "address": {
+    "en": "40m / Gulan Street, near Union Bank",
+    "ar": "شارع 40م / شارع گولان، قرب مصرف الاتحاد",
+    "ku": "شەقامی 40 مەتری / شەقامی گوڵان، نزیک یونیەن بانک"
+   },
+   "phones": [
+    "+964 662 274 833"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "FWD overseas hospital network list, Jul 2024",
+   "confidence": "medium"
+  },
+  {
+   "id": "lst",
+   "kind": "center",
+   "sector": "private",
+   "name": {
+    "en": "Life Support Team Medical Center",
+    "ar": "مركز لايف سبورت تيم الطبي",
+    "ku": "سەنتەری پزیشکیی لایف سەپۆرت تیم"
+   },
+   "address": {
+    "en": "Italian City (Village), Villa 245",
+    "ar": "المدينة الإيطالية، فيلا 245",
+    "ku": "شاری ئیتاڵی، ڤێلای 245"
+   },
+   "phones": [
+    "+964 750 881 0102",
+    "+964 750 881 0103"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "37 services including heart, nerves, cancer, ENT, urology, MRI, CT and PET scans",
+    "ar": "37 خدمة منها القلب، الأعصاب، الأورام، الأنف والأذن والحنجرة، المسالك البولية، الرنين والمفراس والـPET",
+    "ku": "37 خزمەتگوزاری لەوانە دڵ، دەمار، شێرپەنجە، گوێ و لووت و قوڕگ، میزەڕۆ، MRI و CT و PET"
+   },
+   "source": "UK FCDO list of English-speaking doctors in Iraq (gov.uk, updated 13 Jun 2023); bupaglobal.com",
+   "confidence": "high"
+  },
+  {
+   "id": "hawlerpriv",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Hawler Private Hospital",
+    "ar": "مستشفى هولير الأهلي",
+    "ku": "نەخۆشخانەی تایبەتیی هەولێر"
+   },
+   "address": {
+    "en": "120 Meter Street (one listing says 100m St)",
+    "ar": "شارع 120 متري (أحد المصادر يذكر شارع 100م)",
+    "ku": "شەقامی 120 مەتری (سەرچاوەیەک دەڵێت 100 مەتری)"
+   },
+   "phones": [
+    "+964 750 454 1764"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "vymaps.com; starkarhealth.com",
+   "confidence": "low"
+  },
+  {
+   "id": "maryamana",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Maryamana Hospital",
+    "ar": "مستشفى مريمانا",
+    "ku": "نەخۆشخانەی مەریەمانا"
+   },
+   "address": {
+    "en": "Opposite St Joseph Church",
+    "ar": "مقابل كنيسة مار يوسف",
+    "ku": "بەرامبەر کڵێسای مار یوسف"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "mofa.go.jp",
+   "confidence": "medium"
+  },
+  {
+   "id": "welfare",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Welfare Hospital",
+    "ar": "مستشفى ويلفير",
+    "ku": "نەخۆشخانەی وێلفێر"
+   },
+   "address": {
+    "en": "Bakhtiari Street",
+    "ar": "شارع بختياري",
+    "ku": "شەقامی بەختیاری"
+   },
+   "phones": [
+    "+964 66 255 20 53",
+    "+964 66 227 20 21"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "Belgian Embassy Amman list",
+   "confidence": "medium"
+  },
+  {
+   "id": "nanakaly",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Nanakaly Hospital for Blood Diseases & Cancer",
+    "ar": "مستشفى نانكلي لأمراض الدم والأورام",
+    "ku": "نەخۆشخانەی نانەکەلی بۆ نەخۆشییەکانی خوێن و شێرپەنجە"
+   },
+   "address": null,
+   "phones": [
+    "+964 770 22 15 486",
+    "+964 750 11 48 464"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Blood diseases and cancer",
+    "ar": "أمراض الدم والأورام",
+    "ku": "نەخۆشییەکانی خوێن و شێرپەنجە"
+   },
+   "source": "Belgian Embassy Amman list",
+   "confidence": "medium"
+  },
+  {
+   "id": "emergency",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Erbil Emergency Hospital",
+    "ar": "مستشفى طوارئ أربيل",
+    "ku": "نەخۆشخانەی فریاکەوتنی هەولێر"
+   },
+   "address": {
+    "en": "Baxtyari area (exact street not stated)",
+    "ar": "منطقة بختياري (الشارع غير محدد)",
+    "ku": "ناوچەی بەختیاری (شەقام دیار نییە)"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Emergency and injuries",
+    "ar": "الطوارئ والإصابات",
+    "ku": "فریاکەوتن و برینداری"
+   },
+   "source": "NBC News 2014; emc-iraq.com",
+   "confidence": "low",
+   "emergency24": true
+  },
+  {
+   "id": "yaqoubi",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Dr. Sobhi Yaqoubi Children's Emergency & ICU Hospital",
+    "ar": "مستشفى د. صبحي يعقوبي لطوارئ وعناية الأطفال",
+    "ku": "نەخۆشخانەی د. سوبحی یەعقوبی بۆ فریاکەوتن و چاودێری چڕی منداڵان"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Children's emergency and intensive care",
+    "ar": "طوارئ الأطفال والعناية المركزة",
+    "ku": "فریاکەوتنی منداڵان و چاودێری چڕ"
+   },
+   "source": "kurdistan24.net",
+   "confidence": "low",
+   "emergency24": true
+  },
+  {
+   "id": "dakhil",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Dr. Dakhil Hospital",
+    "ar": "مستشفى د. دخيل",
+    "ku": "نەخۆشخانەی د. دەخیل"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "kurdistan24.net",
+   "confidence": "low"
+  },
+  {
+   "id": "mihrabani",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "Mihrabani Private Hospital",
+    "ar": "مستشفى ميهرباني الأهلي",
+    "ku": "نەخۆشخانەی تایبەتیی میهرەبانی"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "hawlergov.org",
+   "confidence": "low"
+  },
+  {
+   "id": "rahma",
+   "kind": "hospital",
+   "sector": "charity",
+   "name": {
+    "en": "Al-Rahma Hospital",
+    "ar": "مستشفى الرحمة",
+    "ku": "نەخۆشخانەی ڕەحمە"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Private hospital with a charity share",
+    "ar": "مستشفى أهلي بحصة خيرية",
+    "ku": "نەخۆشخانەی تایبەت بە بەشێکی خێرخوازی"
+   },
+   "source": "shafaq.com",
+   "confidence": "low"
+  },
+  {
+   "id": "paky",
+   "kind": "hospital",
+   "sector": "private",
+   "name": {
+    "en": "PAKY Hospital",
+    "ar": "مستشفى باكي",
+    "ku": "نەخۆشخانەی پاکی"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "kbms.academia.edu",
+   "confidence": "low"
+  },
+  {
+   "id": "rapareen",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Rapareen Teaching Hospital for Children",
+    "ar": "مستشفى رابرين التعليمي للأطفال",
+    "ku": "نەخۆشخانەی فێرکاریی ڕاپەڕین بۆ منداڵان"
+   },
+   "address": {
+    "en": "Hawler Medical City",
+    "ar": "مدينة هولير الطبية",
+    "ku": "شاری پزیشکیی هەولێر"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Children's hospital, children's surgery",
+    "ar": "مستشفى أطفال، جراحة الأطفال",
+    "ku": "نەخۆشخانەی منداڵان، نەشتەرگەری منداڵان"
+   },
+   "source": "Hawler Medical University document",
+   "confidence": "low"
+  },
+  {
+   "id": "sos",
+   "kind": "clinic",
+   "sector": "private",
+   "name": {
+    "en": "International SOS Erbil Clinic",
+    "ar": "عيادة إنترناشونال إس أو إس أربيل",
+    "ku": "کلینیکی International SOS هەولێر"
+   },
+   "address": {
+    "en": "Inside Swedish Specialty Hospital, Room 4, 100m Road",
+    "ar": "داخل المستشفى السويدي التخصصي، غرفة 4، شارع 100م",
+    "ku": "لەناو نەخۆشخانەی پسپۆڕیی سویدی، ژووری 4، شەقامی 100 مەتری"
+   },
+   "phones": [
+    "+964 750 149 0685"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Primary care, emergency, occupational health",
+    "ar": "الرعاية الأولية، الطوارئ، الصحة المهنية",
+    "ku": "چاودێری سەرەتایی، فریاکەوتن، تەندروستیی کار"
+   },
+   "source": "internationalsos.com",
+   "confidence": "high",
+   "hours": {
+    "en": "Sun–Thu 09:00–17:00",
+    "ar": "الأحد–الخميس 09:00–17:00",
+    "ku": "یەکشەممە–پێنجشەممە 09:00–17:00"
+   }
+  },
+  {
+   "id": "emc",
+   "kind": "center",
+   "sector": "private",
+   "name": {
+    "en": "English Medical Center (EMC)",
+    "ar": "المركز الطبي الإنجليزي (EMC)",
+    "ku": "سەنتەری پزیشکیی ئینگلیزی (EMC)"
+   },
+   "address": {
+    "en": "Baxtyari Building 16, behind the Emergency Hospital",
+    "ar": "بناية بختياري 16، خلف مستشفى الطوارئ",
+    "ku": "باڵەخانەی بەختیاری 16، پشت نەخۆشخانەی فریاکەوتن"
+   },
+   "phones": [
+    "+964 750 5 777 555",
+    "+964 773 0 777 555"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Eye care and eye tests",
+    "ar": "طب العيون وفحص النظر",
+    "ku": "چاو و پشکنینی بینایی"
+   },
+   "source": "emc-iraq.com (centre's own site, page footer 2016)",
+   "confidence": "low",
+   "stale": "2016"
+  },
+  {
+   "id": "jec",
+   "kind": "center",
+   "sector": "private",
+   "name": {
+    "en": "Jordanian Eye Center (JEC)",
+    "ar": "مركز العيون الأردني (JEC)",
+    "ku": "سەنتەری چاوی ئوردنی (JEC)"
+   },
+   "address": {
+    "en": "Stein Street, opposite the Ministry of Justice",
+    "ar": "شارع شتاين، مقابل وزارة العدل",
+    "ku": "شەقامی ستاین، بەرامبەر وەزارەتی داد"
+   },
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Laser, children's eyes, lenses, eye surgery",
+    "ar": "الليزر، عيون الأطفال، العدسات، جراحة العيون",
+    "ku": "لەیزەر، چاوی منداڵان، لێنز، نەشتەرگەری چاو"
+   },
+   "source": "jeciraq.com (centre's own site)",
+   "confidence": "high"
+  },
+  {
+   "id": "shami",
+   "kind": "center",
+   "sector": "private",
+   "name": {
+    "en": "Shami Eye Center, Erbil branch",
+    "ar": "مركز الشامي للعيون - فرع أربيل",
+    "ku": "سەنتەری چاوی شامی - لقی هەولێر"
+   },
+   "address": {
+    "en": "60 Meter Street, opposite the Silo",
+    "ar": "شارع 60 متري، مقابل السايلو",
+    "ku": "شەقامی 60 مەتری، بەرامبەر سایلۆ"
+   },
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Eye care and eye surgery",
+    "ar": "طب وجراحة العيون",
+    "ku": "پزیشکی و نەشتەرگەری چاو"
+   },
+   "source": "shamieye-iq.com (centre's own site)",
+   "confidence": "high"
+  },
+  {
+   "id": "istanbulent",
+   "kind": "center",
+   "sector": "private",
+   "name": {
+    "en": "Istanbul ENT & Aesthetic Center",
+    "ar": "مركز إسطنبول للأنف والأذن والحنجرة والتجميل",
+    "ku": "سەنتەری ئەستەنبوڵ بۆ گوێ و لووت و قوڕگ و جوانکاری"
+   },
+   "address": {
+    "en": "40m Street, No. 165, Brayati",
+    "ar": "شارع 40م، رقم 165، برايتي",
+    "ku": "شەقامی 40 مەتری، ژمارە 165، بڕایەتی"
+   },
+   "phones": [
+    "+964 750 165 51 51"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Sinus surgery, nose surgery, ear surgery",
+    "ar": "جراحة الجيوب الأنفية، جراحة الأنف، جراحة الأذن",
+    "ku": "نەشتەرگەری سینەس، لووت، گوێ"
+   },
+   "source": "istanbulentcenter.net (centre's own site)",
+   "confidence": "high",
+   "hours": {
+    "en": "Sun–Thu 09:00–19:00",
+    "ar": "الأحد–الخميس 09:00–19:00",
+    "ku": "یەکشەممە–پێنجشەممە 09:00–19:00"
+   }
+  },
+  {
+   "id": "hmudent",
+   "kind": "university",
+   "sector": "public",
+   "name": {
+    "en": "Hawler Medical University – College of Dentistry",
+    "ar": "جامعة هولير الطبية - كلية طب الأسنان",
+    "ku": "زانکۆی پزیشکیی هەولێر - کۆلێژی ددانسازی"
+   },
+   "address": {
+    "en": "60 Meter Street",
+    "ar": "شارع 60 متري",
+    "ku": "شەقامی 60 مەتری"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "hmu.edu.krd",
+   "confidence": "medium"
+  },
+  {
+   "id": "ukh",
+   "kind": "university",
+   "sector": "private",
+   "name": {
+    "en": "University of Kurdistan Hewlêr – School of Medicine",
+    "ar": "جامعة كردستان هولير - كلية الطب",
+    "ku": "زانکۆی کوردستان هەولێر - کۆلێژی پزیشکی"
+   },
+   "address": {
+    "en": "30 Metre Avenue",
+    "ar": "شارع 30 متري",
+    "ku": "شەقامی 30 مەتری"
+   },
+   "phones": [
+    "+964 750 857 8811"
+   ],
+   "phoneNote": "university",
+   "email": null,
+   "departments": null,
+   "source": "ukh.edu.krd",
+   "confidence": "medium"
+  },
+  {
+   "id": "maternity",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Maternity Teaching Hospital",
+    "ar": "مستشفى الولادة التعليمي",
+    "ku": "نەخۆشخانەی فێرکاریی منداڵبوون"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Pregnancy, birth and women's health",
+    "ar": "الحمل والولادة والنسائية",
+    "ku": "دووگیانی، منداڵبوون و ئافرەتان"
+   },
+   "source": "hmu.edu.krd",
+   "confidence": "medium"
+  },
+  {
+   "id": "erbilteaching",
+   "kind": "hospital",
+   "sector": "public",
+   "name": {
+    "en": "Erbil Teaching Hospital",
+    "ar": "مستشفى أربيل التعليمي",
+    "ku": "نەخۆشخانەی فێرکاریی هەولێر"
+   },
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "email": null,
+   "departments": null,
+   "source": "hmu.edu.krd",
+   "confidence": "medium"
+  },
+  {
+   "id": "petromed",
+   "kind": "clinic",
+   "sector": "private",
+   "name": {
+    "en": "PETRO MED",
+    "ar": "بترو ميد",
+    "ku": "پێترۆ مێد"
+   },
+   "address": {
+    "en": "100 Meter, NAZ quarter, opposite Erbil International Airport",
+    "ar": "شارع 100م، حي ناز، مقابل مطار أربيل الدولي",
+    "ku": "شەقامی 100 مەتری، گەڕەکی ناز، بەرامبەر فڕۆکەخانەی نێودەوڵەتیی هەولێر"
+   },
+   "phones": [
+    "+964 771 060 6830"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Occupational and offshore medicine",
+    "ar": "طب العمل",
+    "ku": "پزیشکی کار"
+   },
+   "source": "oeuk.org.uk registered doctors",
+   "confidence": "medium"
+  },
+  {
+   "id": "chalaby",
+   "kind": "clinic",
+   "sector": "private",
+   "name": {
+    "en": "Dr. Dana Chalaby Clinic",
+    "ar": "عيادة د. دانا چلبي",
+    "ku": "کلینیکی د. دانا چەلەبی"
+   },
+   "address": null,
+   "phones": [
+    "+964 750 548 2728"
+   ],
+   "phoneNote": null,
+   "email": null,
+   "departments": {
+    "en": "Dental clinic",
+    "ar": "عيادة أسنان",
+    "ku": "کلینیکی ددان"
+   },
+   "source": "snapchat.com/@dclinic99 (clinic page)",
+   "confidence": "medium"
+  }
+ ],
+ "doctors": [
+  {
+   "id": "d01",
+   "title": "dr",
+   "name": {
+    "en": "Nidal Khorshed",
+    "ar": "نضال خورشيد",
+    "ku": "نیدال خورشید"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "emc",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 5 777 555",
+    "+964 773 0 777 555"
+   ],
+   "phoneNote": null,
+   "source": "emc-iraq.com (centre's own site, page footer 2016)",
+   "flags": [
+    "stale"
+   ]
+  },
+  {
+   "id": "d02",
+   "title": "dr",
+   "name": {
+    "en": "Ismaeel el Arja",
+    "ar": "إسماعيل العرجا",
+    "ku": "ئیسماعیل عەرجا"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "emc",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 5 777 555",
+    "+964 773 0 777 555"
+   ],
+   "phoneNote": null,
+   "source": "emc-iraq.com (centre's own site, page footer 2016)",
+   "flags": [
+    "stale"
+   ]
+  },
+  {
+   "id": "d03",
+   "title": "dr",
+   "name": {
+    "en": "Amjad Yunus",
+    "ar": "أمجد يونس",
+    "ku": "ئەمجەد یونس"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "emc",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 5 777 555",
+    "+964 773 0 777 555"
+   ],
+   "phoneNote": null,
+   "source": "emc-iraq.com (centre's own site, page footer 2016)",
+   "flags": [
+    "stale"
+   ]
+  },
+  {
+   "id": "d04",
+   "title": "od",
+   "name": {
+    "en": "Ahmad Battah",
+    "ar": "أحمد بطاح",
+    "ku": "ئەحمەد بەتاح"
+   },
+   "arabicFromSource": false,
+   "specialty": "optometry",
+   "detail": {
+    "en": "Optometrist (not a physician)",
+    "ar": "أخصائي بصريات (ليس طبيباً)",
+    "ku": "پسپۆڕی بینایی (پزیشک نییە)"
+   },
+   "placeId": "emc",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 5 777 555",
+    "+964 773 0 777 555"
+   ],
+   "phoneNote": null,
+   "source": "emc-iraq.com (centre's own site, page footer 2016)",
+   "flags": [
+    "stale"
+   ]
+  },
+  {
+   "id": "d05",
+   "title": "dr",
+   "name": {
+    "en": "Mohammad Abu Shehadeh",
+    "ar": "محمد أبو شحادة",
+    "ku": "محەمەد ئەبو شەحادە"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d06",
+   "title": "dr",
+   "name": {
+    "en": "Mutaz Shawar",
+    "ar": "معتز شوار",
+    "ku": "موعتەز شەوار"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d07",
+   "title": "dr",
+   "name": {
+    "en": "Raed Shatnawi",
+    "ar": "رائد الشطناوي",
+    "ku": "ڕائید شەتناوی"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d08",
+   "title": "dr",
+   "name": {
+    "en": "Moatasem Al-Latayfeh",
+    "ar": "معتصم اللطايفة",
+    "ku": "موعتەسەم لەتایفە"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d09",
+   "title": "dr",
+   "name": {
+    "en": "Riad Maalouf",
+    "ar": "رياض معلوف",
+    "ku": "ڕیاز مەعلوف"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d10",
+   "title": "prof",
+   "name": {
+    "en": "Asem Al-Qudah",
+    "ar": "عاصم القضاة",
+    "ku": "عاسم قوزات"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d11",
+   "title": "dr",
+   "name": {
+    "en": "Sherif Issa",
+    "ar": "شريف عيسى",
+    "ku": "شەریف عیسا"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "jec",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 777 9900"
+   ],
+   "phoneNote": null,
+   "source": "jeciraq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d12",
+   "title": "dr",
+   "name": {
+    "en": "Ghada Abdulhafez",
+    "ar": "غادة عبد الحافظ",
+    "ku": "غادە عەبدولحافز"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d13",
+   "title": "dr",
+   "name": {
+    "en": "Mahdi Eissa Mawas",
+    "ar": "مهدي عيسى مواس",
+    "ku": "مەهدی عیسا مەواس"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d14",
+   "title": "dr",
+   "name": {
+    "en": "Moataz Gharaibeh",
+    "ar": "معتز غرايبة",
+    "ku": "موعتەز غەرایبە"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d15",
+   "title": "dr",
+   "name": {
+    "en": "Ahmad Abdulwahab",
+    "ar": "أحمد عبد الوهاب",
+    "ku": "ئەحمەد عەبدولوەهاب"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d16",
+   "title": "dr",
+   "name": {
+    "en": "Wesam Shehadeh",
+    "ar": "وسام شحادة",
+    "ku": "ویسام شەحادە"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d17",
+   "title": "dr",
+   "name": {
+    "en": "Mohammad Yaseen",
+    "ar": "محمد ياسين",
+    "ku": "محەمەد یاسین"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d18",
+   "title": "dr",
+   "name": {
+    "en": "Safwan Abu Alrub",
+    "ar": "صفوان أبو الرب",
+    "ku": "سەفوان ئەبو ڕەب"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d19",
+   "title": "dr",
+   "name": {
+    "en": "Ashraf Abdulsalam",
+    "ar": "أشرف عبد السلام",
+    "ku": "ئەشرەف عەبدولسەلام"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d20",
+   "title": "dr",
+   "name": {
+    "en": "Rami Al-Duwairi",
+    "ar": "رامي الدويري",
+    "ku": "ڕامی دوەیری"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d21",
+   "title": "dr",
+   "name": {
+    "en": "Nasser Abdullah",
+    "ar": "ناصر عبد الله",
+    "ku": "ناسر عەبدوڵڵا"
+   },
+   "arabicFromSource": true,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "shami",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 783 411 1011"
+   ],
+   "phoneNote": null,
+   "source": "shamieye-iq.com (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d22",
+   "title": "dr",
+   "name": {
+    "en": "Ahmed Shaarawy",
+    "ar": "أحمد الشعراوي",
+    "ku": "ئەحمەد شەعراوی"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": {
+    "en": "Cornea & vision-correction surgery (visiting clinic, 3rd floor)",
+    "ar": "جراحة القرنية وتصحيح النظر (عيادة زائرة، الطابق الثالث)",
+    "ku": "نەشتەرگەری کۆرنیا و ڕاستکردنەوەی بینایی (کلینیکی سەردانکەر، نهۆمی سێیەم)"
+   },
+   "placeId": "par",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 770 475 5561"
+   ],
+   "phoneNote": null,
+   "source": "cornea.clinic/en/clinics/erbil",
+   "flags": []
+  },
+  {
+   "id": "d23",
+   "title": "dr",
+   "name": {
+    "en": "Ahmed Kareem Joma",
+    "ar": "أحمد كريم جمعة",
+    "ku": "ئەحمەد کەریم جومعە"
+   },
+   "arabicFromSource": false,
+   "specialty": "eyes",
+   "detail": null,
+   "placeId": "erbilteaching",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 006 2240"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2006920)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d24",
+   "title": "opdr",
+   "name": {
+    "en": "M. Haluk Bilgin",
+    "ar": "م. هالوك بيلگين",
+    "ku": "م. هالووک بیلگین"
+   },
+   "arabicFromSource": false,
+   "specialty": "ent",
+   "detail": {
+    "en": "Head & neck surgery; sinus, nose and ear surgery; in Erbil since 2011",
+    "ar": "جراحة الرأس والعنق؛ الجيوب الأنفية والأنف والأذن؛ في أربيل منذ 2011",
+    "ku": "نەشتەرگەری سەر و مل؛ سینەس، لووت و گوێ؛ لە هەولێر لە 2011ەوە"
+   },
+   "placeId": "istanbulent",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 165 51 51"
+   ],
+   "phoneNote": null,
+   "source": "istanbulentcenter.net (centre's own site)",
+   "flags": []
+  },
+  {
+   "id": "d25",
+   "title": "prof",
+   "name": {
+    "en": "Said Mustafa Said",
+    "ar": "سعيد مصطفى سعيد",
+    "ku": "سەعید مستەفا سەعید"
+   },
+   "arabicFromSource": false,
+   "specialty": "ent",
+   "detail": {
+    "en": "Head & neck surgery; consultant since 2004; professor at Hawler Medical University",
+    "ar": "جراحة الرأس والعنق؛ استشاري منذ 2004؛ أستاذ في جامعة هولير الطبية",
+    "ku": "نەشتەرگەری سەر و مل؛ ڕاوێژکار لە 2004ەوە؛ پرۆفیسۆر لە زانکۆی پزیشکیی هەولێر"
+   },
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 006 2240"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2005902)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d26",
+   "title": "dr",
+   "name": {
+    "en": "Omar Fawzi Abduljabbar",
+    "ar": "عمر فوزي عبد الجبار",
+    "ku": "عومەر فەوزی عەبدولجەبار"
+   },
+   "arabicFromSource": false,
+   "specialty": "ortho",
+   "detail": null,
+   "placeId": "hmudent",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 451 2500"
+   ],
+   "phoneNote": null,
+   "source": "aaoinfo.org (American Association of Orthodontists locator)",
+   "flags": []
+  },
+  {
+   "id": "d27",
+   "title": "dr",
+   "name": {
+    "en": "Shaho Ziyad Al-Talabani",
+    "ar": "شاهو زياد الطالباني",
+    "ku": "شاهۆ زیاد تاڵەبانی"
+   },
+   "arabicFromSource": false,
+   "specialty": "ortho",
+   "detail": null,
+   "placeId": null,
+   "privateClinic": true,
+   "address": {
+    "en": "60 Meter Street",
+    "ar": "شارع 60 متري",
+    "ku": "شەقامی 60 مەتری"
+   },
+   "phones": [
+    "+964 750 455 6685"
+   ],
+   "phoneNote": null,
+   "source": "aaoinfo.org (AAO locator)",
+   "flags": []
+  },
+  {
+   "id": "d28",
+   "title": "dr",
+   "name": {
+    "en": "Brwa Mahdi Aziz Khoshnaw",
+    "ar": "بروا مهدي عزيز خوشناو",
+    "ku": "بڕوا مەهدی عەزیز خۆشناو"
+   },
+   "arabicFromSource": false,
+   "specialty": "ortho",
+   "detail": null,
+   "placeId": null,
+   "privateClinic": true,
+   "address": {
+    "en": "Italian City (1), villa 428",
+    "ar": "المدينة الإيطالية (1)، فيلا 428",
+    "ku": "شاری ئیتاڵی (1)، ڤێلای 428"
+   },
+   "phones": [
+    "+964 750 486 4444"
+   ],
+   "phoneNote": null,
+   "source": "aaoinfo.org (AAO locator)",
+   "flags": []
+  },
+  {
+   "id": "d29",
+   "title": "dr",
+   "name": {
+    "en": "Dana Ghany Chalaby",
+    "ar": "دانا غني چلبي",
+    "ku": "دانا غەنی چەلەبی"
+   },
+   "arabicFromSource": false,
+   "specialty": "dental",
+   "detail": null,
+   "placeId": "chalaby",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 548 2728"
+   ],
+   "phoneNote": null,
+   "source": "snapchat.com/@dclinic99 (clinic page)",
+   "flags": []
+  },
+  {
+   "id": "d30",
+   "title": "dr",
+   "name": {
+    "en": "Mostafa Alrifaie",
+    "ar": "مصطفى الرفاعي",
+    "ku": "مستەفا ڕیفاعی"
+   },
+   "arabicFromSource": false,
+   "specialty": "dental",
+   "detail": null,
+   "placeId": null,
+   "privateClinic": true,
+   "address": {
+    "en": "100 Meter, Badawa",
+    "ar": "شارع 100م، بداوة",
+    "ku": "شەقامی 100 مەتری، بەداوە"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "source": "whatclinic.com/dentists/iraq",
+   "flags": [
+    "noPhone"
+   ]
+  },
+  {
+   "id": "d31",
+   "title": "dr",
+   "name": {
+    "en": "Sara Nawzad",
+    "ar": "سارة نوزاد",
+    "ku": "سارا نەوزاد"
+   },
+   "arabicFromSource": false,
+   "specialty": "obgyn",
+   "detail": {
+    "en": "High-risk pregnancy (maternal-fetal medicine); 11 years' experience",
+    "ar": "طب الأم والجنين؛ خبرة 11 سنة",
+    "ku": "پزیشکیی دایک و کۆرپەلە؛ 11 ساڵ ئەزموون"
+   },
+   "placeId": null,
+   "privateClinic": false,
+   "address": {
+    "en": "Erbil centre",
+    "ar": "مركز أربيل",
+    "ku": "ناوەندی هەولێر"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "source": "kurdistandoctors.com (screenshot provided by user, 12 Oct 2026)",
+   "flags": [
+    "noPhone"
+   ]
+  },
+  {
+   "id": "d32",
+   "title": "dr",
+   "name": {
+    "en": "Jwan Dakheel Saeed",
+    "ar": "جوان دخيل سعيد",
+    "ku": "جوان دەخیل سەعید"
+   },
+   "arabicFromSource": false,
+   "specialty": "obgyn",
+   "detail": null,
+   "placeId": "ukh",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 857 8811"
+   ],
+   "phoneNote": "university",
+   "source": "ukh.edu.krd faculty profile",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d33",
+   "title": "dr",
+   "name": {
+    "en": "Sura Mohammed Salah",
+    "ar": "سرى محمد صلاح",
+    "ku": "سورا محەمەد سەلاح"
+   },
+   "arabicFromSource": false,
+   "specialty": "obgyn",
+   "detail": null,
+   "placeId": "ukh",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 857 8811"
+   ],
+   "phoneNote": "university",
+   "source": "ukh.edu.krd faculty profile",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d34",
+   "title": "dr",
+   "name": {
+    "en": "Awat Ibrahim Hamadamen",
+    "ar": "آوات إبراهيم حمه أمين",
+    "ku": "ئاوات ئیبراهیم حەمەئەمین"
+   },
+   "arabicFromSource": false,
+   "specialty": "obgyn",
+   "detail": {
+    "en": "Also works at the Maternity Teaching Hospital",
+    "ar": "تعمل أيضاً في مستشفى الولادة التعليمي",
+    "ku": "هەروەها لە نەخۆشخانەی فێرکاریی منداڵبوون کار دەکات"
+   },
+   "placeId": "ukh",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 857 8811"
+   ],
+   "phoneNote": "university",
+   "source": "ukh.edu.krd faculty profile; also hmu.edu.krd/profile (lecturer_id=2011911): works at Maternity Teaching Hospital",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d35",
+   "title": "dr",
+   "name": {
+    "en": "Srwa Khalid",
+    "ar": "سروة خالد",
+    "ku": "سروە خالید"
+   },
+   "arabicFromSource": false,
+   "specialty": "obgyn",
+   "detail": null,
+   "placeId": "ukh",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 857 8811"
+   ],
+   "phoneNote": "university",
+   "source": "ukh.edu.krd faculty profile",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d36",
+   "title": "dr",
+   "name": {
+    "en": "Avin Sadiq Jamil",
+    "ar": "آفين صادق جميل",
+    "ku": "ئاڤین سادق جەمیل"
+   },
+   "arabicFromSource": false,
+   "specialty": "obgyn",
+   "detail": {
+    "en": "Assisted reproduction (fertility)",
+    "ar": "المساعدة على الإنجاب (الخصوبة)",
+    "ku": "یارمەتیدانی منداڵبوون (پیتین)"
+   },
+   "placeId": "maternity",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 006 2240"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2007928)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d37",
+   "title": "dr",
+   "name": {
+    "en": "Sarhang Hussein",
+    "ar": "سرهنك حسين",
+    "ku": "سەرهەنگ حوسێن"
+   },
+   "arabicFromSource": false,
+   "specialty": "surgery",
+   "detail": {
+    "en": "Colorectal and keyhole (laparoscopic) surgery",
+    "ar": "جراحة القولون والمستقيم والمنظار",
+    "ku": "نەشتەرگەری کۆڵۆن و نەشتەرگەری بە بۆری"
+   },
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "source": "hamad.qa speaker profile (6CSOC 2019)",
+   "flags": []
+  },
+  {
+   "id": "d38",
+   "title": "prof",
+   "name": {
+    "en": "Ali Al-Dabbagh",
+    "ar": "علي الدباغ",
+    "ku": "عەلی دەباغ"
+   },
+   "arabicFromSource": false,
+   "specialty": "urology",
+   "detail": null,
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "source": "facs.org member profile",
+   "flags": []
+  },
+  {
+   "id": "d39",
+   "title": "dr",
+   "name": {
+    "en": "Aso Sabir Saeed Sheikh Bzeni",
+    "ar": "آسو صابر سعيد شيخ بزيني",
+    "ku": "ئاسۆ سابیر سەعید شێخ بزێنی"
+   },
+   "arabicFromSource": false,
+   "specialty": "neuro",
+   "detail": {
+    "en": "Multiple sclerosis (MS)",
+    "ar": "التصلب المتعدد",
+    "ku": "ئیم ئێس (MS)"
+   },
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "source": "rcpe.ac.uk (RCPE regional adviser page)",
+   "flags": []
+  },
+  {
+   "id": "d40",
+   "title": "dr",
+   "name": {
+    "en": "Rashid Hamid Bibani",
+    "ar": "رشيد حامد بيباني",
+    "ku": "ڕەشید حامید بیبانی"
+   },
+   "arabicFromSource": false,
+   "specialty": "neuro",
+   "detail": {
+    "en": "Multiple sclerosis (MS)",
+    "ar": "التصلب المتعدد",
+    "ku": "ئیم ئێس (MS)"
+   },
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 006 2240"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2003906)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d41",
+   "title": "dr",
+   "name": {
+    "en": "Azad Hasan",
+    "ar": "آزاد حسن",
+    "ku": "ئازاد حەسەن"
+   },
+   "arabicFromSource": false,
+   "specialty": "neuro",
+   "detail": {
+    "en": "Headache, epilepsy, stroke, dementia; 23 years' practice",
+    "ar": "الصداع، الصرع، الجلطة الدماغية، الخرف؛ 23 سنة ممارسة",
+    "ku": "سەرئێشە، فێ، جەڵتەی مێشک، بیرچوونەوە؛ 23 ساڵ کار"
+   },
+   "placeId": null,
+   "privateClinic": false,
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "source": "azadhasan.com (doctor's own website)",
+   "flags": [
+    "noPhone"
+   ]
+  },
+  {
+   "id": "d42",
+   "title": "prof",
+   "name": {
+    "en": "Abdullah Saeed Ibrahim",
+    "ar": "عبد الله سعيد إبراهيم",
+    "ku": "عەبدوڵڵا سەعید ئیبراهیم"
+   },
+   "arabicFromSource": false,
+   "specialty": "gastro",
+   "detail": {
+    "en": "Head of the Stomach & Liver Centre, Rizgary",
+    "ar": "رئيس مركز الجهاز الهضمي والكبد في رزكاري",
+    "ku": "سەرۆکی سەنتەری هەرس و جگەری ڕزگاری"
+   },
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 006 2240"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2006930)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d43",
+   "title": "prof",
+   "name": {
+    "en": "Sirwan Kamil Ali",
+    "ar": "سيروان كامل علي",
+    "ku": "سیروان کامیل عەلی"
+   },
+   "arabicFromSource": false,
+   "specialty": "psych",
+   "detail": {
+    "en": "Head of Psychiatry, Hawler Medical University",
+    "ar": "رئيس قسم الطب النفسي في جامعة هولير الطبية",
+    "ku": "سەرۆکی بەشی دەروونی لە زانکۆی پزیشکیی هەولێر"
+   },
+   "placeId": null,
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 66 227 3384"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2006901)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d44",
+   "title": "dr",
+   "name": {
+    "en": "Diyar Hussein Taher",
+    "ar": "ديار حسين طاهر",
+    "ku": "دیار حوسێن تاهیر"
+   },
+   "arabicFromSource": false,
+   "specialty": "psych",
+   "detail": null,
+   "placeId": "erbilteaching",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 006 2240"
+   ],
+   "phoneNote": "university",
+   "source": "hmu.edu.krd/profile (lecturer_id=2000901)",
+   "flags": [
+    "universityPhone"
+   ]
+  },
+  {
+   "id": "d45",
+   "title": "dr",
+   "name": {
+    "en": "Ahmed D. Abdulwahab",
+    "ar": "أحمد عبد الوهاب",
+    "ku": "ئەحمەد عەبدولوەهاب"
+   },
+   "arabicFromSource": false,
+   "specialty": "radiology",
+   "detail": {
+    "en": "Brain and nerve imaging, image-guided treatment",
+    "ar": "أشعة الدماغ والأعصاب والأشعة التداخلية",
+    "ku": "تیشکی مێشک و دەمار و چارەسەری بە تیشک"
+   },
+   "placeId": "rizgary",
+   "privateClinic": false,
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "source": "radiopaedia.org user profile",
+   "flags": []
+  },
+  {
+   "id": "d46",
+   "title": "dr",
+   "name": {
+    "en": "Rawand Soran",
+    "ar": "رواند سوران",
+    "ku": "ڕەوەند سۆران"
+   },
+   "arabicFromSource": false,
+   "specialty": "cardio",
+   "detail": {
+    "en": "Interventional cardiology (heart catheter)",
+    "ar": "قسطرة القلب",
+    "ku": "کاتیتەری دڵ"
+   },
+   "placeId": null,
+   "privateClinic": false,
+   "address": null,
+   "phones": [],
+   "phoneNote": null,
+   "source": "kurdistandoctors.com (screenshot provided by user, 12 Oct 2026)",
+   "flags": [
+    "noPhone",
+    "cityUnconfirmed"
+   ]
+  },
+  {
+   "id": "d47",
+   "title": "dr",
+   "name": {
+    "en": "Karwan Jalal",
+    "ar": "كاروان جلال",
+    "ku": "کاروان جەلال"
+   },
+   "arabicFromSource": false,
+   "specialty": "derm",
+   "detail": {
+    "en": "Laser & cosmetic skin care; 10 years' experience",
+    "ar": "الليزر والتجميل؛ خبرة 10 سنوات",
+    "ku": "لەیزەر و جوانکاری؛ 10 ساڵ ئەزموون"
+   },
+   "placeId": null,
+   "privateClinic": false,
+   "address": {
+    "en": "Erbil centre",
+    "ar": "مركز أربيل",
+    "ku": "ناوەندی هەولێر"
+   },
+   "phones": [],
+   "phoneNote": null,
+   "source": "kurdistandoctors.com (screenshot provided by user, 12 Oct 2026)",
+   "flags": [
+    "noPhone"
+   ]
+  },
+  {
+   "id": "d48",
+   "title": "dr",
+   "name": {
+    "en": "Araz M. Fakhri Qaradaghy",
+    "ar": "آراز م. فخري قرداغي",
+    "ku": "ئاراز م. فەخری قەرەداغی"
+   },
+   "arabicFromSource": false,
+   "specialty": "hemonc",
+   "detail": null,
+   "placeId": "nanakaly",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 770 22 15 486",
+    "+964 750 11 48 464"
+   ],
+   "phoneNote": null,
+   "source": "Belgian Embassy Amman approved-doctors list",
+   "flags": [
+    "specialtyInferred"
+   ]
+  },
+  {
+   "id": "d49",
+   "title": "dr",
+   "name": {
+    "en": "Mohammad Rahmann",
+    "ar": "محمد رحمن",
+    "ku": "محەمەد ڕەحمان"
+   },
+   "arabicFromSource": false,
+   "specialty": "general",
+   "detail": null,
+   "placeId": "welfare",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 750 491 59 79",
+    "+964 750 416 68 63",
+    "+964 66 255 20 53",
+    "+964 66 227 20 21"
+   ],
+   "phoneNote": null,
+   "source": "Belgian Embassy Amman approved-doctors list",
+   "flags": []
+  },
+  {
+   "id": "d50",
+   "title": "dr",
+   "name": {
+    "en": "Ahmad Hama",
+    "ar": "أحمد حمه",
+    "ku": "ئەحمەد حەمە"
+   },
+   "arabicFromSource": false,
+   "specialty": "occup",
+   "detail": null,
+   "placeId": "petromed",
+   "privateClinic": false,
+   "address": null,
+   "phones": [
+    "+964 771 060 6830"
+   ],
+   "phoneNote": null,
+   "source": "oeuk.org.uk registered doctors",
+   "flags": []
+  }
+ ]
+}
