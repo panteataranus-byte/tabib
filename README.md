@@ -2,7 +2,7 @@
 
 Find a doctor or hospital in Erbil, book an appointment, and keep your own medical file. Arabic first, with Kurdish (Sorani) and English, built for people of every age.
 
-**Live demo:** https://claude.ai/artifact/PskttxsD6iZxBp4tuCf5jZ
+**Live demo:** https://panteataranus-byte.github.io/tabib/
 
 > Demo version. Bookings are not sent to any clinic, and everything you enter stays encrypted in your own browser.
 
