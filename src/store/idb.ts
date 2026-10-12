@@ -9,6 +9,8 @@ function open(): Promise<IDBDatabase> {
   if (!dbPromise) {
     dbPromise = new Promise((resolve, reject) => {
       if (!('indexedDB' in globalThis)) return reject(new Error('storage-unavailable'));
+      // Some in-app browsers never answer an open request; give up so the app still loads.
+      setTimeout(() => reject(new Error('storage-unavailable')), 3000);
       const req = indexedDB.open(DB_NAME, 1);
       req.onupgradeneeded = () => {
         for (const s of STORES) if (!req.result.objectStoreNames.contains(s)) req.result.createObjectStore(s);
