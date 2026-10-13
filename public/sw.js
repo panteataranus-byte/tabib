@@ -1,6 +1,6 @@
 // Tabib service worker: the app shell and its assets are cached so the directory opens offline.
 // Personal data never passes through here: it lives encrypted in IndexedDB.
-const CACHE = 'tabib-v1';
+const CACHE = 'tabib-v2';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './index.html', './manifest.webmanifest', './icon.svg'])));
