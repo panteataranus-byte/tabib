@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useI18n } from '../i18n/i18n';
-import { doctorsAt, getPlace } from '../data';
+import { doctorsAt, getPlace, placeTone } from '../data';
 import { Icon } from '../components/Icon';
 import { DoctorCard, Notice, PhoneRow, TopBar } from '../components/ui';
 import NotFound from './NotFound';
@@ -17,11 +17,11 @@ export default function PlacePage() {
       <TopBar title={t('placeProfile')} />
       <main id="main" tabIndex={-1} className="page">
         <section className="row" style={{ gap: 14 }}>
-          <span className="tile" style={{ inlineSize: 64, blockSize: 64, borderRadius: 18 }} aria-hidden="true">
+          <span className="tile tile--lg" data-tone={placeTone(p)} aria-hidden="true">
             <Icon name={p.kind === 'hospital' ? 'hospital' : 'building'} />
           </span>
           <div className="grow" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <h2 style={{ fontSize: '1.35rem' }}>{tx(p.name)}</h2>
+            <h2 className="profile__name">{tx(p.name)}</h2>
             <div className="row" style={{ gap: 6, flexWrap: 'wrap' }}>
               <span className="badge badge--soft">{t(p.sector)}</span>
               {p.emergency24 && <span className="badge badge--danger">{t('emergency24')}</span>}

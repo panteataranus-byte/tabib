@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { phoneText, useI18n } from '../i18n/i18n';
 import type { Doctor, Place } from '../data/types';
-import { contactPhones, data, doctorAddress, getPlace } from '../data';
+import { contactPhones, data, doctorAddress, getPlace, placeTone, toneOf } from '../data';
 import { Icon, specialtyIcon } from './Icon';
 
 export function useDoctorName() {
@@ -91,7 +91,7 @@ export function DoctorCard({ d, headingLevel = 2 }: { d: Doctor; headingLevel?: 
   return (
     <article className="card">
       <div className="row">
-        <span className="avatar" aria-hidden="true">{initial(tx(d.name))}</span>
+        <span className="avatar" data-tone={toneOf(d.specialty)} aria-hidden="true">{initial(tx(d.name))}</span>
         <div className="grow">
           <H className="card__title">
             <Link to={`/doctor/${d.id}`}>{name}</Link>
@@ -124,7 +124,7 @@ export function PlaceCard({ p, headingLevel = 2 }: { p: Place; headingLevel?: 2 
   return (
     <article className="card">
       <div className="row">
-        <span className="tile" aria-hidden="true">
+        <span className="tile" data-tone={placeTone(p)} aria-hidden="true">
           <Icon name={p.kind === 'hospital' ? 'hospital' : 'building'} />
         </span>
         <div className="grow">
@@ -146,7 +146,7 @@ export function PlaceCard({ p, headingLevel = 2 }: { p: Place; headingLevel?: 2 
 export function SpecialtyTile({ k, count }: { k: string; count: number }) {
   const { tx, plural } = useI18n();
   return (
-    <Link className="spec" to={`/search?s=${k}`}>
+    <Link className="spec" data-tone={toneOf(k)} to={`/search?s=${k}`}>
       <span className="spec__icon">
         <Icon name={specialtyIcon[k] ?? 'steth'} />
       </span>

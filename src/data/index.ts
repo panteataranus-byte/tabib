@@ -40,6 +40,16 @@ export const browseGroups: { key: string; members: string[] }[] = [
   { key: 'general', members: ['general'] },
 ];
 
+/** Each browse group gets one of six colour tones, so specialties are told apart by colour as well as icon. */
+export type Tone = 'sky' | 'mint' | 'rose' | 'amber' | 'violet' | 'teal';
+const tones: Record<string, Tone> = {
+  eyes: 'sky', obgyn: 'rose', dental: 'mint', neuro: 'violet', ent: 'amber', psych: 'teal', cardio: 'rose', derm: 'amber',
+  surgery: 'sky', urology: 'mint', gastro: 'amber', radiology: 'violet', hemonc: 'rose', occup: 'teal', general: 'sky',
+};
+export const groupOf = (specialty: string) => browseGroups.find((g) => g.members.includes(specialty))?.key ?? specialty;
+export const toneOf = (specialty: string): Tone => tones[groupOf(specialty)] ?? 'teal';
+export const placeTone = (p: Place): Tone => (p.kind === 'hospital' ? 'sky' : 'mint');
+
 export function countIn(members: string[]) {
   return data.doctors.filter((d) => members.includes(d.specialty)).length;
 }

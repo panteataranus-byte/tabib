@@ -15,7 +15,8 @@ export function nextOpenDays(count: number, from = new Date()): Date[] {
   const out: Date[] = [];
   const d = new Date(from.getFullYear(), from.getMonth(), from.getDate());
   while (out.length < count) {
-    if (!CLOSED_DAYS.includes(d.getDay())) out.push(new Date(d));
+    // Skip closed days, and today once its last bookable time has passed.
+    if (!CLOSED_DAYS.includes(d.getDay()) && openTimes(isoDate(d), [], from).some((t) => t.available)) out.push(new Date(d));
     d.setDate(d.getDate() + 1);
   }
   return out;

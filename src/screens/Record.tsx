@@ -120,7 +120,7 @@ export default function Record() {
           {initial(account.name)}
         </span>
         <div className="grow">
-          <h1 style={{ fontSize: '1.35rem' }}>{account.name}</h1>
+          <h1 style={{ fontSize: '1.2rem' }}>{account.name}</h1>
           <p className="hero__sub">
             {plural('years', ageFrom(account.birthDate))} · {t('bloodType')} <span className="ltr">{r.bloodType || t('unknown')}</span>
           </p>

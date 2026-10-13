@@ -71,17 +71,16 @@ export function Icon({ name, title, ...rest }: { name: IconName; title?: string 
   );
 }
 
+/** Colours come from the --logo-* tokens, so the mark follows the theme. */
 export function Logo({ inverted = false }: { inverted?: boolean }) {
-  const tile = inverted ? '#ffffff' : '#0B7285';
-  const star = inverted ? '#0B7285' : '#ffffff';
   return (
-    <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-      <rect width="40" height="40" rx="11" fill={tile} />
-      <g fill={star}>
+    <svg className={inverted ? 'logo logo--inverted' : 'logo'} viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+      <rect className="logo__tile" width="40" height="40" rx="11" />
+      <g className="logo__mark">
         <rect x="11" y="11" width="18" height="18" rx="2" />
         <rect x="11" y="11" width="18" height="18" rx="2" transform="rotate(45 20 20)" />
       </g>
-      <path d="M20 15v10M15 20h10" stroke={tile} strokeWidth="3" strokeLinecap="round" />
+      <path className="logo__cross" d="M20 15v10M15 20h10" strokeWidth="3" strokeLinecap="round" />
     </svg>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useI18n } from '../i18n/i18n';
 import { useApp } from '../store/AppState';
-import { contactPhones, data, doctorAddress, getDoctor, getPlace } from '../data';
+import { contactPhones, data, doctorAddress, getDoctor, getPlace, toneOf } from '../data';
 import { Icon } from '../components/Icon';
 import { DoctorFlags, PhoneRow, TopBar, initial, useDoctorName } from '../components/ui';
 import { isoDate, nextOpenDays, openTimes, parseIso } from '../schedule';
@@ -40,9 +40,9 @@ export default function DoctorPage() {
       <TopBar title={t('doctorProfile')} />
       <main id="main" tabIndex={-1} className="page">
         <section className="row" style={{ gap: 14 }}>
-          <span className="avatar avatar--lg" aria-hidden="true">{initial(tx(d.name))}</span>
+          <span className="avatar avatar--lg" data-tone={toneOf(d.specialty)} aria-hidden="true">{initial(tx(d.name))}</span>
           <div className="grow" style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <h2 style={{ fontSize: '1.4rem' }}>{name(d)}</h2>
+            <h2 className="profile__name">{name(d)}</h2>
             <p className="muted">{tx(data.specialties[d.specialty])}</p>
             {fromSourceSite && (
               <span className="badge badge--accent">
@@ -77,7 +77,7 @@ export default function DoctorPage() {
 
         <section id="book" className="section" aria-labelledby="h-day" style={{ scrollMarginTop: 80 }}>
           <div className="section__head">
-            <h2 id="h-day" style={{ fontSize: '1.15rem' }}>{t('chooseDay')}</h2>
+            <h2 id="h-day" style={{ fontSize: '1.02rem' }}>{t('chooseDay')}</h2>
             <span className="muted small">{n(`${list('months')[days[0].getMonth()]} ${days[0].getFullYear()}`)}</span>
           </div>
           <div className="days" role="group" aria-labelledby="h-day">
@@ -102,7 +102,7 @@ export default function DoctorPage() {
               );
             })}
           </div>
-          <h2 id="h-time" style={{ fontSize: '1.15rem' }}>{t('chooseTime')}</h2>
+          <h2 id="h-time" style={{ fontSize: '1.02rem' }}>{t('chooseTime')}</h2>
           <div className="slots" role="group" aria-labelledby="h-time">
             {times.map(({ time: tm, available }) => (
               <button key={tm} type="button" className="slot" aria-pressed={slot === tm} disabled={!available} onClick={() => setSlot(tm)}>
