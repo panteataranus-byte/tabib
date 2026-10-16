@@ -41,7 +41,7 @@ export function LanguageButton() {
                 type="button"
                 lang={l === 'ku' ? 'ckb' : l}
                 className="btn btn--ghost"
-                style={{ inlineSize: '100%', justifyContent: 'flex-start', color: 'var(--ink)', fontWeight: l === lang ? 700 : 500 }}
+                style={{ inlineSize: '100%', justifyContent: 'flex-start', color: 'var(--ink)', fontWeight: l === lang ? 600 : 400 }}
                 aria-current={l === lang}
                 onClick={() => {
                   setLang(l);

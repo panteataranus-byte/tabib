@@ -50,7 +50,7 @@ function ListBlock({ s }: { s: (typeof SECTIONS)[number] }) {
         <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
           {items.map((it, i) => (
             <li key={i} className="row" style={{ gap: 6 }}>
-              <span className="grow" style={{ fontWeight: 700, overflowWrap: 'anywhere' }}>{it}</span>
+              <span className="grow" style={{ fontWeight: 600, overflowWrap: 'anywhere' }}>{it}</span>
               <button type="button" className="icon-btn" style={{ inlineSize: 40, blockSize: 40, background: 'transparent' }} aria-label={`${t('remove')}: ${it}`} onClick={() => updateRecord({ [s.key]: items.filter((_, j) => j !== i) })}>
                 <Icon name="close" width={18} height={18} />
               </button>
@@ -140,7 +140,7 @@ export default function Record() {
                 <div className="datebox__num">{n(parseIso(next.date).getDate())}</div>
               </div>
               <div className="grow">
-                <Link to="/appointments" style={{ fontWeight: 700, color: 'var(--ink)' }}>{name(nd)}</Link>
+                <Link to="/appointments" style={{ fontWeight: 600, color: 'var(--ink)' }}>{name(nd)}</Link>
                 <p className="meta">
                   {date(parseIso(next.date), 'short')} · {time(next.time)}
                   {getPlace(nd.placeId) ? ` · ${tx(getPlace(nd.placeId)!.name)}` : ''}
@@ -189,7 +189,7 @@ export default function Record() {
           {r.documents.length === 0 && <p className="muted small">{t('none')}</p>}
           {r.documents.map((d) => (
             <div key={d.id} className="row">
-              <span className="tile" style={{ inlineSize: 40, blockSize: 48, borderRadius: 8, fontSize: '0.7rem', fontWeight: 700 }} aria-hidden="true">
+              <span className="tile" style={{ inlineSize: 40, blockSize: 48, borderRadius: 8, fontSize: '0.7rem', fontWeight: 600 }} aria-hidden="true">
                 {d.type === 'application/pdf' ? 'PDF' : d.type === 'image/png' ? 'PNG' : 'JPG'}
               </span>
               <div className="grow">

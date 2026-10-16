@@ -57,7 +57,7 @@ All storage goes through one `Backend` interface (`src/store/types.ts`). The nex
 ```bash
 npm install
 npm run dev          # local development
-npm run build        # production build in dist/ (installable PWA)
+npm run build        # production build in dist/ (installable PWA, home screen prebuilt into the page)
 npm run build:demo   # single-file demo page in dist-artifact/tabib.html
 ```
 

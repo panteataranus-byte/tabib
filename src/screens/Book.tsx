@@ -70,7 +70,7 @@ export default function Book() {
         <div className="datebox__small">{list('weekdays')[when.getDay()]}</div>
       </div>
       <div className="grow">
-        <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>{name(d)}</div>
+        <div style={{ fontWeight: 600, fontSize: '1.05rem' }}>{name(d)}</div>
         <div className="small">{time(slot)}</div>
         {place && <div className="small">{tx(place.name)}</div>}
       </div>

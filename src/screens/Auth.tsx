@@ -199,7 +199,7 @@ export function SignUp() {
             {busy ? <span className="spinner" style={{ inlineSize: 22, blockSize: 22 }} /> : t('signUp')}
           </button>
           <p style={{ textAlign: 'center' }}>
-            {t('haveAccount')} <Link to={`/login?next=${encodeURIComponent(next)}`} style={{ fontWeight: 700 }}>{t('signIn')}</Link>
+            {t('haveAccount')} <Link to={`/login?next=${encodeURIComponent(next)}`} style={{ fontWeight: 600 }}>{t('signIn')}</Link>
           </p>
           <p className="prose small" id="privacy">{t('privacyBody')}</p>
         </form>
@@ -257,7 +257,7 @@ export function SignIn() {
             {busy ? <span className="spinner" style={{ inlineSize: 22, blockSize: 22 }} /> : t('signIn')}
           </button>
           <p style={{ textAlign: 'center' }}>
-            {t('noAccount')} <Link to={`/signup?next=${encodeURIComponent(next)}`} style={{ fontWeight: 700 }}>{t('signUp')}</Link>
+            {t('noAccount')} <Link to={`/signup?next=${encodeURIComponent(next)}`} style={{ fontWeight: 600 }}>{t('signUp')}</Link>
           </p>
         </form>
       </main>

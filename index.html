@@ -6,12 +6,14 @@
     <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#171C2B" media="(prefers-color-scheme: dark)" />
     <meta name="description" content="طبيب: ابحث عن طبيب أو مستشفى في أربيل واحجز موعداً. Find a doctor or hospital in Erbil." />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2mTE1VW8h3O9s7BhBZv9neSmoRVjSGW9TxrXUay6edY='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
     <meta name="referrer" content="no-referrer" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <title>طبيب · Tabib</title>
+    <!-- Hides the prebuilt Arabic home screen when another language or screen was asked for. Its hash is in the CSP above. -->
+    <script>try{var h=location.hash,l=localStorage.getItem('tabib.pref.lang'),z=localStorage.getItem('tabib.pref.textSize');if((h&&h!=='#'&&h!=='#/')||(l&&l!=='ar'))document.documentElement.className='pre-hide';if(z)document.documentElement.setAttribute('data-text-size',z)}catch(e){}</script>
   </head>
   <body>
     <div id="root"></div>

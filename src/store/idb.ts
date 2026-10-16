@@ -19,7 +19,8 @@ function open(): Promise<IDBDatabase> {
       req.onerror = () => reject(new Error('storage-unavailable'));
       req.onblocked = () => reject(new Error('storage-unavailable'));
     });
-    dbPromise.catch(() => (dbPromise = null));
+    // A failed or timed-out open is remembered for this visit, so later reads fail at once instead of waiting again.
+    dbPromise.catch(() => {});
   }
   return dbPromise;
 }

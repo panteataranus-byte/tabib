@@ -16,18 +16,24 @@ import NotFound from './screens/NotFound';
 
 const NO_NAV = [/^\/doctor\//, /^\/book\//, /^\/signup/, /^\/login/];
 
-function Shell() {
+// Screens that need to know who is signed in wait for storage; the directory itself shows at once.
+const ACCOUNT_ROUTES = [/^\/book\//, /^\/appointments/, /^\/record/, /^\/settings/, /^\/signup/, /^\/login/];
+
+export function Shell() {
   const { t } = useI18n();
   const { ready } = useApp();
   const { pathname } = useLocation();
   useEffect(() => window.scrollTo(0, 0), [pathname]);
+  // index.html hides the prebuilt home screen when it is not the screen to show; this reveals what React drew.
+  useEffect(() => document.documentElement.classList.remove('pre-hide'), []);
   const showNav = !NO_NAV.some((r) => r.test(pathname));
+  const waiting = !ready && ACCOUNT_ROUTES.some((r) => r.test(pathname));
   return (
     <div className="shell">
       <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById('main')?.focus(); }}>
         {t('skipToContent')}
       </a>
-      {!ready ? (
+      {waiting ? (
         <Loading />
       ) : (
         <Routes>
@@ -54,7 +60,8 @@ const Router = import.meta.env.MODE === 'artifact' ? MemoryRouter : HashRouter;
 
 export default function App() {
   return (
-    <Router>
+    // Screens are small, so drawing each one in a single pass is quicker than React's sliced transitions.
+    <Router useTransitions={false}>
       <Shell />
     </Router>
   );

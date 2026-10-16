@@ -1,25 +1,28 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import '@fontsource/ibm-plex-sans-arabic/arabic-400.css';
 import '@fontsource/ibm-plex-sans-arabic/arabic-600.css';
-import '@fontsource/ibm-plex-sans-arabic/arabic-700.css';
 import '@fontsource/ibm-plex-sans-arabic/latin-400.css';
 import '@fontsource/ibm-plex-sans-arabic/latin-600.css';
-import '@fontsource/ibm-plex-sans-arabic/latin-700.css';
 import './styles.css';
 import App from './App';
 import { I18nProvider } from './i18n/i18n';
 import { AppStateProvider } from './store/AppState';
 
-createRoot(document.getElementById('root')!).render(
+const app = (
   <StrictMode>
     <I18nProvider>
       <AppStateProvider>
         <App />
       </AppStateProvider>
     </I18nProvider>
-  </StrictMode>,
+  </StrictMode>
 );
+// The built page already holds the Arabic home screen (scripts/prerender.mjs), so it shows before this code arrives.
+// React takes it over when it matches; otherwise (another language or a deep link) it draws the right screen instead.
+const root = document.getElementById('root')!;
+if (root.firstElementChild && !document.documentElement.classList.contains('pre-hide')) hydrateRoot(root, app);
+else createRoot(root).render(app);
 
 // Offline support once installed. Registered only in production builds, so development stays uncached.
 if (import.meta.env.PROD && import.meta.env.MODE !== 'artifact' && 'serviceWorker' in navigator) {
