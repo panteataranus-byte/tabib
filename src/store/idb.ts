@@ -1,6 +1,6 @@
 /** A very small promise wrapper around one IndexedDB database with a few key-value stores. */
 const DB_NAME = 'tabib';
-const STORES = ['users', 'vaults', 'files', 'session', 'attempts'] as const;
+const STORES = ['users', 'vaults', 'files', 'session', 'attempts', 'outbox'] as const;
 export type StoreName = (typeof STORES)[number];
 
 let dbPromise: Promise<IDBDatabase> | null = null;
@@ -12,7 +12,7 @@ function open(): Promise<IDBDatabase> {
       // Some in-app browsers never answer an open request; give up after 3 s so the app still loads.
       // If the answer comes later after all, later calls use it.
       const timer = setTimeout(() => reject(new Error('storage-unavailable')), 3000);
-      const req = indexedDB.open(DB_NAME, 1);
+      const req = indexedDB.open(DB_NAME, 2); // 2 adds the outbox for the owner's customer list
       req.onupgradeneeded = () => {
         for (const s of STORES) if (!req.result.objectStoreNames.contains(s)) req.result.createObjectStore(s);
       };
