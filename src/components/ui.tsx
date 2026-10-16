@@ -201,10 +201,26 @@ export function ConfirmDialog({
   confirm: string;
   cancel: string;
   danger?: boolean;
-  onConfirm: () => void;
+  onConfirm: () => void | Promise<void>;
   onClose: () => void;
 }) {
+  const { t } = useI18n();
   const id = useId();
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+  // Stay open with a message if the action fails, and ignore extra taps while it runs.
+  const run = async () => {
+    if (busy) return;
+    setBusy(true);
+    setFailed(false);
+    try {
+      await onConfirm();
+    } catch {
+      setFailed(true);
+    } finally {
+      setBusy(false);
+    }
+  };
   const ref = useRef<HTMLButtonElement>(null);
   const box = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -231,11 +247,12 @@ export function ConfirmDialog({
       <div ref={box} className="dialog" role="alertdialog" aria-modal="true" aria-labelledby={`${id}-t`} aria-describedby={body ? `${id}-b` : undefined}>
         <h2 id={`${id}-t`}>{title}</h2>
         {body && <p id={`${id}-b`}>{body}</p>}
+        {failed && <p className="field__error" role="alert">{t('errAction')}</p>}
         <div className="actions">
           <button ref={ref} type="button" className="btn btn--outline grow" onClick={onClose}>
             {cancel}
           </button>
-          <button type="button" className={`btn grow ${danger ? 'btn--danger' : 'btn--primary'}`} onClick={onConfirm}>
+          <button type="button" className={`btn grow ${danger ? 'btn--danger' : 'btn--primary'}`} onClick={run} disabled={busy} aria-busy={busy}>
             {confirm}
           </button>
         </div>

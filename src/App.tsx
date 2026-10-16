@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Component, useEffect, type ReactNode } from 'react';
 import { HashRouter, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { useI18n } from './i18n/i18n';
 import { useApp } from './store/AppState';
@@ -13,6 +13,20 @@ import Record from './screens/Record';
 import Settings from './screens/Settings';
 import { SignIn, SignUp } from './screens/Auth';
 import NotFound from './screens/NotFound';
+
+/** If a screen fails to draw, show "page not found" with a way home instead of a blank page. */
+class ScreenBoundary extends Component<{ children: ReactNode; resetKey: string }, { failed: boolean; key: string }> {
+  state = { failed: false, key: this.props.resetKey };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  static getDerivedStateFromProps(props: { resetKey: string }, state: { failed: boolean; key: string }) {
+    return props.resetKey === state.key ? null : { failed: false, key: props.resetKey };
+  }
+  render() {
+    return this.state.failed ? <NotFound /> : this.props.children;
+  }
+}
 
 const NO_NAV = [/^\/doctor\//, /^\/book\//, /^\/signup/, /^\/login/];
 
@@ -36,6 +50,7 @@ export function Shell() {
       {waiting ? (
         <Loading />
       ) : (
+        <ScreenBoundary resetKey={pathname}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
@@ -49,6 +64,7 @@ export function Shell() {
           <Route path="/login" element={<SignIn />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </ScreenBoundary>
       )}
       {showNav && <BottomNav />}
     </div>

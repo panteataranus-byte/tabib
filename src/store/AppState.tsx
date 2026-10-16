@@ -11,7 +11,8 @@ interface AppState {
   signOut: () => Promise<void>;
   book: (a: Omit<Appointment, 'id' | 'status' | 'createdAt'>) => Promise<Appointment>;
   cancelAppointment: (id: string) => Promise<void>;
-  updateRecord: (patch: Partial<MedicalRecord>) => Promise<void>;
+  /** Pass a function to build the change from the latest record, so quick edits never undo each other. */
+  updateRecord: (patch: Partial<MedicalRecord> | ((r: MedicalRecord) => Partial<MedicalRecord>)) => Promise<void>;
   addDocument: (file: File) => Promise<void>;
   readDocument: (id: string) => Promise<Blob | null>;
   removeDocument: (id: string) => Promise<void>;
@@ -57,10 +58,36 @@ export function AppStateProvider({ children, backend }: { children: ReactNode; b
     });
   }, [be]);
 
-  const commit = useCallback(
-    async (next: Vault) => {
-      await be.saveVault(next);
-      setVault(next);
+  // Other tabs say when they save or sign in or out, so this one never writes over their changes.
+  const channel = useRef<BroadcastChannel | null>(null);
+  useEffect(() => {
+    if (typeof BroadcastChannel === 'undefined') return;
+    const ch = new BroadcastChannel('tabib');
+    channel.current = ch;
+    ch.onmessage = (e) => {
+      if (e.data === 'vault' && vaultRef.current) be.loadVault().then(setVault, () => {});
+      if (e.data === 'session')
+        be.restore().then((r) => {
+          setAccount(r?.account ?? null);
+          setVault(r?.vault ?? null);
+        });
+    };
+    return () => ch.close();
+  }, [be]);
+  const tell = (what: 'vault' | 'session') => channel.current?.postMessage(what);
+
+  // Saves run one after another, each on top of the latest stored vault.
+  const queue = useRef<Promise<unknown>>(Promise.resolve());
+  const change = useCallback(
+    (fn: (v: Vault) => Vault) => {
+      const run = queue.current.then(async () => {
+        const next = fn(await be.loadVault());
+        await be.saveVault(next);
+        setVault(next);
+        tell('vault');
+      });
+      queue.current = run.catch(() => {});
+      return run;
     },
     [be],
   );
@@ -72,6 +99,7 @@ export function AppStateProvider({ children, backend }: { children: ReactNode; b
   const start = (r: { account: Account; vault: Vault }) => {
     setAccount(r.account);
     setVault(r.vault);
+    tell('session');
     return r;
   };
 
@@ -86,20 +114,18 @@ export function AppStateProvider({ children, backend }: { children: ReactNode; b
         await be.signOut();
         setAccount(null);
         setVault(null);
+        tell('session');
       },
       book: async (a) => {
         const appt: Appointment = { ...a, id: crypto.randomUUID(), status: 'booked', createdAt: new Date().toISOString() };
-        const v = current();
-        await commit({ ...v, appointments: [...v.appointments, appt] });
+        await change((v) => ({ ...v, appointments: [...v.appointments, appt] }));
         return appt;
       },
       cancelAppointment: async (id) => {
-        const v = current();
-        await commit({ ...v, appointments: v.appointments.map((x) => (x.id === id ? { ...x, status: 'cancelled' as const } : x)) });
+        await change((v) => ({ ...v, appointments: v.appointments.map((x) => (x.id === id ? { ...x, status: 'cancelled' as const } : x)) }));
       },
       updateRecord: async (patch) => {
-        const v = current();
-        await commit({ ...v, record: { ...v.record, ...patch } });
+        await change((v) => ({ ...v, record: { ...v.record, ...(typeof patch === 'function' ? patch(v.record) : patch) } }));
       },
       addDocument: async (file) => {
         if (file.size > MAX_FILE_MB * 1024 * 1024) throw new FileError('size');
@@ -114,8 +140,12 @@ export function AppStateProvider({ children, backend }: { children: ReactNode; b
           addedAt: new Date().toISOString(),
         };
         await be.putFile(meta.id, bytes);
-        const v = current();
-        await commit({ ...v, record: { ...v.record, documents: [...v.record.documents, meta] } });
+        try {
+          await change((v) => ({ ...v, record: { ...v.record, documents: [...v.record.documents, meta] } }));
+        } catch (e) {
+          await be.deleteFile(meta.id).catch(() => {}); // do not leave an unlisted file behind
+          throw e;
+        }
       },
       readDocument: async (id) => {
         const meta = current().record.documents.find((d) => d.id === id);
@@ -123,18 +153,19 @@ export function AppStateProvider({ children, backend }: { children: ReactNode; b
         return meta && bytes ? new Blob([bytes], { type: meta.type }) : null;
       },
       removeDocument: async (id) => {
-        await be.deleteFile(id);
-        const v = current();
-        await commit({ ...v, record: { ...v.record, documents: v.record.documents.filter((d) => d.id !== id) } });
+        // Unlist first: if deleting the file then fails, nothing broken is left on screen.
+        await change((v) => ({ ...v, record: { ...v.record, documents: v.record.documents.filter((d) => d.id !== id) } }));
+        await be.deleteFile(id).catch(() => {});
       },
       deleteAccount: async () => {
         await be.deleteAccount();
         setAccount(null);
         setVault(null);
+        tell('session');
       },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [ready, account, vault, be, commit],
+    [ready, account, vault, be, change],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

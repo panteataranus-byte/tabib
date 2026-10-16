@@ -5,7 +5,7 @@ import { useApp } from '../store/AppState';
 import { contactPhones, data, doctorAddress, getDoctor, getPlace, toneOf } from '../data';
 import { Icon } from '../components/Icon';
 import { DoctorFlags, PhoneRow, TopBar, initial, useDoctorName } from '../components/ui';
-import { isoDate, nextOpenDays, openTimes, parseIso } from '../schedule';
+import { BOOKING_DAYS, isoDate, nextOpenDays, openTimes, parseIso } from '../schedule';
 import NotFound from './NotFound';
 
 export default function DoctorPage() {
@@ -16,7 +16,7 @@ export default function DoctorPage() {
   const nav = useNavigate();
   const loc = useLocation();
   const name = useDoctorName();
-  const days = useMemo(() => nextOpenDays(6), []);
+  const days = useMemo(() => nextOpenDays(BOOKING_DAYS), []);
   const [day, setDay] = useState(isoDate(days[0]));
   const [slot, setSlot] = useState<string | null>(null);
 

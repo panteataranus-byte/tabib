@@ -5,7 +5,7 @@ import { useApp } from '../store/AppState';
 import { getDoctor, getPlace } from '../data';
 import { Icon } from '../components/Icon';
 import { FieldError, Notice, TopBar, useDoctorName } from '../components/ui';
-import { isValidDate, isValidTime, parseIso } from '../schedule';
+import { isBookable, isValidDate, isValidTime, parseIso } from '../schedule';
 import { cleanText, formatPhone, normalisePhone, validName } from '../validate';
 import NotFound from './NotFound';
 
@@ -14,7 +14,7 @@ export default function Book() {
   const [params] = useSearchParams();
   const loc = useLocation();
   const { t, tx, n, time, list, lang } = useI18n();
-  const { account, book } = useApp();
+  const { account, vault, book } = useApp();
   const name = useDoctorName();
   const d = getDoctor(id);
   const day = params.get('date') ?? '';
@@ -29,6 +29,9 @@ export default function Book() {
 
   if (!d || !isValidDate(day) || !isValidTime(slot)) return <NotFound />;
   if (!account) return <Navigate to={`/signup?next=${encodeURIComponent(loc.pathname + loc.search)}`} replace />;
+  // The link only carries a day and time; check they are still on offer, whatever the address says.
+  const taken = (vault?.appointments ?? []).filter((a) => a.status === 'booked' && a.doctorId === d.id && a.date === day).map((a) => a.time);
+  const bookable = isBookable(day, slot, taken);
   const place = getPlace(d.placeId);
   const when = parseIso(day);
 
@@ -41,6 +44,10 @@ export default function Book() {
     setErrors(errs);
     if (Object.keys(errs).length) {
       document.getElementById(errs.name ? 'bk-name' : 'bk-phone')?.focus();
+      return;
+    }
+    if (!isBookable(day, slot, taken)) {
+      setErrors({ form: t('errSlotGone') });
       return;
     }
     setBusy(true);
@@ -96,6 +103,21 @@ export default function Book() {
           <Notice>{t('demoNoticeLong')}</Notice>
           <Link className="btn btn--primary btn--block" to="/appointments">
             {t('viewAppointments')}
+          </Link>
+        </main>
+      </>
+    );
+  }
+
+  if (!bookable) {
+    return (
+      <>
+        <TopBar title={t('confirmBooking')} />
+        <main id="main" tabIndex={-1} className="page">
+          {summary}
+          <Notice kind="danger">{t('errSlotGone')}</Notice>
+          <Link className="btn btn--primary btn--block" to={`/doctor/${d.id}#book`} replace>
+            {t('chooseTime')}
           </Link>
         </main>
       </>
@@ -189,7 +211,7 @@ export default function Book() {
             <label htmlFor="bk-reason">
               {t('reason')} <span className="muted" style={{ fontWeight: 400 }}>{t('optional')}</span>
             </label>
-            <textarea id="bk-reason" className="input" rows={2} maxLength={300} placeholder={t('reasonPlaceholder')} value={reason} onChange={(e) => setReason(e.target.value)} />
+            <textarea autoComplete="off" id="bk-reason" className="input" rows={2} maxLength={300} placeholder={t('reasonPlaceholder')} value={reason} onChange={(e) => setReason(e.target.value)} />
           </div>
         </form>
       </main>

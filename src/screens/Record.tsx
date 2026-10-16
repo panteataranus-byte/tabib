@@ -6,7 +6,7 @@ import type { ListSection } from '../store/types';
 import { getDoctor, getPlace } from '../data';
 import { Icon, type IconName } from '../components/Icon';
 import { ConfirmDialog, Notice, initial, useDoctorName } from '../components/ui';
-import { parseIso } from '../schedule';
+import { parseIso, startsAt } from '../schedule';
 import { ageFrom, cleanText } from '../validate';
 import SignInPrompt from './SignInPrompt';
 
@@ -24,6 +24,12 @@ const SAMPLE = {
   en: { allergies: ['Penicillin'], conditions: ['High blood pressure'], medications: ['Amlodipine 5 mg, once a day'] },
 };
 
+/** Removes one entry by its text, so it is still the right one if the list changed meanwhile. */
+const removeFirst = (list: string[], item: string, key: ListSection) => {
+  const at = list.indexOf(item);
+  return { [key]: at < 0 ? list : list.filter((_, j) => j !== at) };
+};
+
 function ListBlock({ s }: { s: (typeof SECTIONS)[number] }) {
   const { t } = useI18n();
   const { vault, updateRecord } = useApp();
@@ -35,7 +41,7 @@ function ListBlock({ s }: { s: (typeof SECTIONS)[number] }) {
     e.preventDefault();
     const v = cleanText(value, 120);
     if (!v) return;
-    await updateRecord({ [s.key]: [...items, v] });
+    await updateRecord((r) => ({ [s.key]: [...r[s.key], v] }));
     setValue('');
     setAdding(false);
   };
@@ -51,7 +57,7 @@ function ListBlock({ s }: { s: (typeof SECTIONS)[number] }) {
           {items.map((it, i) => (
             <li key={i} className="row" style={{ gap: 6 }}>
               <span className="grow" style={{ fontWeight: 600, overflowWrap: 'anywhere' }}>{it}</span>
-              <button type="button" className="icon-btn" style={{ inlineSize: 40, blockSize: 40, background: 'transparent' }} aria-label={`${t('remove')}: ${it}`} onClick={() => updateRecord({ [s.key]: items.filter((_, j) => j !== i) })}>
+              <button type="button" className="icon-btn" style={{ inlineSize: 40, blockSize: 40, background: 'transparent' }} aria-label={`${t('remove')}: ${it}`} onClick={() => updateRecord((r) => removeFirst(r[s.key], it, s.key))}>
                 <Icon name="close" width={18} height={18} />
               </button>
             </li>
@@ -60,7 +66,7 @@ function ListBlock({ s }: { s: (typeof SECTIONS)[number] }) {
         {adding && (
           <form onSubmit={add} className="row" style={{ gap: 6 }}>
             <label htmlFor={inputId} className="sr-only">{t('addItem', { section: t(s.label) })}</label>
-            <input id={inputId} className="input grow" autoFocus maxLength={120} value={value} onChange={(e) => setValue(e.target.value)} />
+            <input id={inputId} className="input grow" autoFocus autoComplete="off" maxLength={120} value={value} onChange={(e) => setValue(e.target.value)} />
             <button type="submit" className="btn btn--primary">{t('save')}</button>
           </form>
         )}
@@ -85,7 +91,7 @@ export default function Record() {
   if (!account || !vault) return <SignInPrompt title={t('myFile')} />;
   const r = vault.record;
   const next = vault.appointments
-    .filter((a) => a.status === 'booked' && parseIso(a.date).getTime() + 86_400_000 > Date.now())
+    .filter((a) => a.status === 'booked' && startsAt(a.date, a.time) >= Date.now())
     .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time))[0];
   const nd = next && getDoctor(next.doctorId);
   const isEmpty = !r.allergies.length && !r.conditions.length && !r.medications.length && !r.bloodType;
@@ -102,8 +108,9 @@ export default function Record() {
     }
   };
   const openDoc = async (id: string) => {
-    const blob = await readDocument(id);
-    if (!blob) return;
+    setFileError('');
+    const blob = await readDocument(id).catch(() => null);
+    if (!blob) return setFileError(t('errOpenFile'));
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

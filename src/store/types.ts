@@ -65,6 +65,7 @@ export interface Backend {
   signUp(input: { name: string; phone: string; birthDate: string; password: string }): Promise<{ account: Account; vault: Vault }>;
   signIn(phone: string, password: string): Promise<{ account: Account; vault: Vault }>;
   signOut(): Promise<void>;
+  loadVault(): Promise<Vault>;
   saveVault(vault: Vault): Promise<void>;
   putFile(id: string, bytes: ArrayBuffer): Promise<void>;
   getFile(id: string): Promise<ArrayBuffer | null>;

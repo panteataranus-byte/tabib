@@ -24,12 +24,26 @@ export function nextOpenDays(count: number, from = new Date()): Date[] {
 
 /** Times still possible on that day: not in the past (with 1 hour notice) and not already booked by this person. */
 export function openTimes(date: string, taken: string[], now = new Date()) {
-  return TIMES.map((time) => {
-    const [h, m] = time.split(':').map(Number);
-    const at = parseIso(date);
-    at.setHours(h, m);
-    return { time, available: at.getTime() - now.getTime() > 3_600_000 && !taken.includes(time) };
-  });
+  return TIMES.map((time) => ({ time, available: startsAt(date, time) - now.getTime() > 3_600_000 && !taken.includes(time) }));
+}
+
+/** The moment an appointment starts, on this device's clock (set with setHours, so clock changes are handled). */
+export function startsAt(date: string, time: string) {
+  const [h, m] = time.split(':').map(Number);
+  const at = parseIso(date);
+  at.setHours(h, m);
+  return at.getTime();
+}
+
+/** How many days ahead the booking screens offer. */
+export const BOOKING_DAYS = 6;
+
+/** Whether a day and time can still be booked: one of the offered days, open, and not taken. */
+export function isBookable(date: string, time: string, taken: string[], now = new Date()) {
+  return (
+    nextOpenDays(BOOKING_DAYS, now).some((d) => isoDate(d) === date) &&
+    openTimes(date, taken, now).some((t) => t.time === time && t.available)
+  );
 }
 
 export const isValidDate = (s: string) => /^\d{4}-\d{2}-\d{2}$/.test(s) && isoDate(parseIso(s)) === s;

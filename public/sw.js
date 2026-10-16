@@ -14,7 +14,8 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('activate', (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))));
+  // Only Tabib's own older caches: other sites on the same address keep theirs.
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('tabib-') && k !== CACHE).map((k) => caches.delete(k)))));
   self.clients.claim();
 });
 
@@ -22,9 +23,16 @@ self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
   if (req.mode === 'navigate') {
+    // Only the app's own page is handled here; opening any other file in the address bar loads it normally.
+    const path = new URL(req.url).pathname;
+    const scope = new URL(self.registration.scope).pathname;
+    if (path !== scope && path !== scope + 'index.html') return;
     // Prefer the fresh page so updates arrive, but on a slow connection open the saved copy instead of waiting.
     const fresh = fetch(req).then((res) => {
-      if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(PAGE, copy)); }
+      if (res.ok && (res.headers.get('content-type') || '').includes('text/html')) {
+        const copy = res.clone();
+        caches.open(CACHE).then((c) => c.put(PAGE, copy));
+      }
       return res;
     });
     e.waitUntil(fresh.catch(() => {}));

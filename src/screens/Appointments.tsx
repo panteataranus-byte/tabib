@@ -5,11 +5,11 @@ import { useApp } from '../store/AppState';
 import { getDoctor, getPlace } from '../data';
 import { Icon } from '../components/Icon';
 import { ConfirmDialog, TopBar, useDoctorName } from '../components/ui';
-import { parseIso } from '../schedule';
+import { parseIso, startsAt } from '../schedule';
 import type { Appointment } from '../store/types';
 import SignInPrompt from './SignInPrompt';
 
-const at = (a: Appointment) => parseIso(a.date).getTime() + Number(a.time.slice(0, 2)) * 3_600_000 + Number(a.time.slice(3)) * 60_000;
+const at = (a: Appointment) => startsAt(a.date, a.time);
 
 export default function Appointments() {
   const { t, tx, n, time, list } = useI18n();

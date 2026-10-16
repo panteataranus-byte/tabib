@@ -39,12 +39,15 @@ The demo has no server, so it protects data the way a real client should before 
 | --- | --- |
 | Passwords | Never stored. PBKDF2-SHA-256 with 600,000 iterations and a random salt (Web Crypto); compared in constant time. |
 | Medical data | Record, appointments and uploaded files are encrypted with AES-256-GCM. The key is derived from the password with its own salt and kept as a non-extractable `CryptoKey`. |
-| Sessions | The non-extractable key is kept in IndexedDB for up to 7 days; signing out or deleting the account removes it. |
+| Sessions | The non-extractable key is kept in IndexedDB for 7 days from sign-in (reopening the app does not extend it); signing out or deleting the account removes it. Browsers keep that key's bytes in their profile files, so on a shared device people should sign out. |
 | Sign-in abuse | After 5 wrong passwords for a phone number, waiting time grows exponentially. Unknown numbers take the same time as known ones. |
 | Uploads | Type checked from the file's first bytes (PDF, JPEG, PNG only), 5 MB limit, file names cleaned. |
-| Redirects | The `next` parameter after sign-in only accepts in-app paths. |
-| Browser policy | Strict Content Security Policy (`script-src 'self'`), no third-party requests (fonts are bundled), `no-referrer`. `public/_headers` adds HSTS, `frame-ancestors 'none'`, `nosniff` and a locked-down Permissions-Policy on hosts that support it. |
-| Account control | Delete account removes the user, the encrypted vault, the files and the session. |
+| Redirects | The `next` parameter after sign-in only accepts in-app paths made of plain characters (no tabs, newlines or backslashes). |
+| Browser policy | Strict Content Security Policy (`script-src 'self'` plus the hash of one tiny inline script), no third-party requests (fonts are bundled), `no-referrer`. The page hides itself inside another site's frame. `public/_headers` adds HSTS, `frame-ancestors 'none'`, `nosniff` and a locked-down Permissions-Policy on hosts that support it. |
+| Account control | Delete account removes the user, the encrypted vault, the files, the sign-in attempts and the session in one transaction. |
+| Saving | Changes are saved one after another on top of the latest stored copy, and open tabs tell each other, so quick edits or two tabs never undo each other. |
+| Bookings | A booking link's day and time are checked against what is really on offer before anything is saved. |
+| Hosting | GitHub Pages serves all of one account's sites from the same address, which share browser storage. Tabib should get its own address (a custom domain) before real people use it. |
 
 All storage goes through one `Backend` interface (`src/store/types.ts`). The next step is a Supabase implementation of that interface: phone sign-in, row-level security so each person can read only their own rows, and storage buckets for documents.
 

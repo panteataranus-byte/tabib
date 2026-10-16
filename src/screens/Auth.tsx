@@ -7,9 +7,12 @@ import { Icon, Logo } from '../components/Icon';
 import { FieldError, Notice } from '../components/ui';
 import { cleanText, normalisePhone, validBirthDate, validName } from '../validate';
 
-/** Only same-app paths are allowed after sign-in, so a crafted link cannot send people to another site. */
+/**
+ * Only same-app paths are allowed after sign-in, so a crafted link cannot send people to another site.
+ * A short list of plain characters also rules out tabs, newlines and backslashes, which browsers ignore or rewrite.
+ */
 export function safeNext(raw: string | null) {
-  return raw && raw.startsWith('/') && !raw.startsWith('//') && !raw.includes('\\') ? raw : '/record';
+  return raw && /^\/(?!\/)[A-Za-z0-9/_\-.?=&%:#]*$/.test(raw) ? raw : '/record';
 }
 
 type Errors = Partial<Record<'name' | 'phone' | 'birth' | 'password' | 'agree' | 'form', string>>;

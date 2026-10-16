@@ -12,13 +12,19 @@ export const formatPhone = (national: string) => `+964 ${national.slice(0, 3)} $
 
 export const cleanText = (s: string, max: number) => s.replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
 
-export const validName = (s: string) => cleanText(s, 80).length >= 3;
+/** At least three characters, and not starting with = + - @, which spreadsheets would read as a formula. */
+export const validName = (s: string) => {
+  const name = cleanText(s, 80);
+  return name.length >= 3 && !/^[=+\-@]/.test(name);
+};
 
 export function validBirthDate(s: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
-  const d = new Date(s + 'T00:00:00');
-  const year = d.getFullYear();
-  return !Number.isNaN(d.getTime()) && d <= new Date() && year >= 1900;
+  const [y, m, day] = s.split('-').map(Number);
+  const d = new Date(y, m - 1, day);
+  // Rejects dates such as 31 February, which Date would quietly roll over into March.
+  const real = d.getFullYear() === y && d.getMonth() === m - 1 && d.getDate() === day;
+  return real && d <= new Date() && y >= 1900;
 }
 
 export function ageFrom(birth: string, now = new Date()) {

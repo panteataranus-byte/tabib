@@ -9,13 +9,18 @@ function open(): Promise<IDBDatabase> {
   if (!dbPromise) {
     dbPromise = new Promise((resolve, reject) => {
       if (!('indexedDB' in globalThis)) return reject(new Error('storage-unavailable'));
-      // Some in-app browsers never answer an open request; give up so the app still loads.
-      setTimeout(() => reject(new Error('storage-unavailable')), 3000);
+      // Some in-app browsers never answer an open request; give up after 3 s so the app still loads.
+      // If the answer comes later after all, later calls use it.
+      const timer = setTimeout(() => reject(new Error('storage-unavailable')), 3000);
       const req = indexedDB.open(DB_NAME, 1);
       req.onupgradeneeded = () => {
         for (const s of STORES) if (!req.result.objectStoreNames.contains(s)) req.result.createObjectStore(s);
       };
-      req.onsuccess = () => resolve(req.result);
+      req.onsuccess = () => {
+        clearTimeout(timer);
+        dbPromise = Promise.resolve(req.result);
+        resolve(req.result);
+      };
       req.onerror = () => reject(new Error('storage-unavailable'));
       req.onblocked = () => reject(new Error('storage-unavailable'));
     });
@@ -43,4 +48,17 @@ export const idb = {
   put: (store: StoreName, key: string, value: unknown) => run<IDBValidKey>(store, 'readwrite', (s) => s.put(value, key)),
   del: (store: StoreName, key: string) => run<undefined>(store, 'readwrite', (s) => s.delete(key)),
   keys: (store: StoreName) => run<IDBValidKey[]>(store, 'readonly', (s) => s.getAllKeys()),
+  /** Deletes several entries in one transaction: either all of them go or none does. */
+  removeAll: (entries: [StoreName, string][]) =>
+    open().then(
+      (db) =>
+        new Promise<void>((resolve, reject) => {
+          if (!entries.length) return resolve();
+          const tx = db.transaction([...new Set(entries.map(([s]) => s))], 'readwrite');
+          for (const [store, key] of entries) tx.objectStore(store).delete(key);
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => reject(tx.error ?? new Error('storage-error'));
+          tx.onabort = () => reject(tx.error ?? new Error('storage-error'));
+        }),
+    ),
 };

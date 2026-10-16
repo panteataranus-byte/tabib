@@ -1,4 +1,4 @@
-import { idb } from './idb';
+import { idb, type StoreName } from './idb';
 import { deriveVaultKey, fromB64, hashPassword, ITERATIONS, open, openJson, randomBytes, sameBytes, seal, sealJson, toB64, type Sealed } from './crypto';
 import { AuthError, emptyVault, type Account, type Backend, type Vault } from './types';
 
@@ -27,16 +27,17 @@ const fail = (e: unknown): never => {
 export class LocalBackend implements Backend {
   private session: StoredSession | null = null;
 
-  private async loadVault(userId: string, key: CryptoKey): Promise<Vault> {
+  private async readVault(userId: string, key: CryptoKey): Promise<Vault> {
     const sealed = await idb.get<Sealed>('vaults', userId);
     return sealed ? { ...emptyVault(), ...(await openJson<Vault>(key, sealed)) } : emptyVault();
   }
 
-  private async startSession(user: StoredUser, key: CryptoKey) {
-    this.session = { userId: user.id, key, expires: Date.now() + SESSION_DAYS * 86_400_000 };
-    await idb.put('session', 'current', this.session);
+  /** A new sign-in lasts 7 days from that moment; reopening the app does not extend it. */
+  private async startSession(user: StoredUser, key: CryptoKey, restored?: StoredSession) {
+    this.session = restored ?? { userId: user.id, key, expires: Date.now() + SESSION_DAYS * 86_400_000 };
+    if (!restored) await idb.put('session', 'current', this.session);
     const { passSalt, passHash, keySalt, iterations, ...account } = user;
-    return { account, vault: await this.loadVault(user.id, key) };
+    return { account, vault: await this.readVault(user.id, key) };
   }
 
   async restore() {
@@ -49,7 +50,7 @@ export class LocalBackend implements Backend {
       const users = await idb.keys('users');
       for (const phone of users) {
         const u = await idb.get<StoredUser>('users', String(phone));
-        if (u?.id === s.userId) return await this.startSession(u, s.key);
+        if (u?.id === s.userId) return await this.startSession(u, s.key, s);
       }
       return null;
     } catch {
@@ -108,13 +109,24 @@ export class LocalBackend implements Backend {
     try {
       await idb.del('session', 'current');
     } catch {
-      /* already gone */
+      // If the delete fails, an expired entry still keeps this device signed out after a reload.
+      await idb.put('session', 'current', { userId: '', expires: 0 }).catch(() => {});
     }
   }
 
   private need() {
+    if (this.session && this.session.expires < Date.now()) {
+      void this.signOut();
+      throw new AuthError('login');
+    }
     if (!this.session) throw new AuthError('login');
     return this.session;
+  }
+
+  /** The latest saved vault, including changes made in another tab. */
+  async loadVault() {
+    const s = this.need();
+    return this.readVault(s.userId, s.key);
   }
 
   async saveVault(vault: Vault) {
@@ -138,14 +150,16 @@ export class LocalBackend implements Backend {
     await idb.del('files', `${s.userId}/${id}`);
   }
 
+  /** Removes the account, its vault, its files, its sign-in attempts and the session, all in one step. */
   async deleteAccount() {
     const s = this.need();
-    for (const k of await idb.keys('files')) if (String(k).startsWith(`${s.userId}/`)) await idb.del('files', String(k));
-    await idb.del('vaults', s.userId);
+    const gone: [StoreName, string][] = [['vaults', s.userId], ['session', 'current']];
+    for (const k of await idb.keys('files')) if (String(k).startsWith(`${s.userId}/`)) gone.push(['files', String(k)]);
     for (const phone of await idb.keys('users')) {
       const u = await idb.get<StoredUser>('users', String(phone));
-      if (u?.id === s.userId) await idb.del('users', String(phone));
+      if (u?.id === s.userId) gone.push(['users', String(phone)], ['attempts', String(phone)]);
     }
-    await this.signOut();
+    await idb.removeAll(gone);
+    this.session = null;
   }
 }

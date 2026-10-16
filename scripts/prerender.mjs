@@ -2,7 +2,7 @@
 // and gives the service worker this build's file list so a second visit opens from the phone.
 import { build } from 'vite';
 import { createHash } from 'node:crypto';
-import { readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 const OUT = 'dist';
@@ -29,12 +29,23 @@ const hash = inline && createHash('sha256').update(inline).digest('base64');
 if (!hash || !page.includes(`'sha256-${hash}'`)) throw new Error(`prerender: CSP hash for the inline script should be 'sha256-${hash}'`);
 writeFileSync(`${OUT}/index.html`, page);
 
+// Hosts that read _headers (Netlify, Cloudflare Pages) apply that policy too, so it needs the same hash.
+const headers = readFileSync(`${OUT}/_headers`, 'utf8');
+if (!headers.includes("script-src 'self';")) throw new Error('prerender: _headers has no script-src to extend');
+writeFileSync(`${OUT}/_headers`, headers.replace("script-src 'self';", `script-src 'self' 'sha256-${hash}';`));
+
 // Only the modern font format is cached; browsers that use these fonts all read woff2.
 const assets = readdirSync(`${OUT}/assets`).filter((f) => !f.endsWith('.woff')).map((f) => `./assets/${f}`);
-const version = createHash('sha256').update(page).update(assets.join()).digest('hex').slice(0, 10);
+// The version covers every published file, so a new icon or manifest also replaces the saved copies.
+const version = createHash('sha256');
+for (const f of readdirSync(OUT, { recursive: true }).map(String).sort()) {
+  if (f === 'sw.js' || statSync(`${OUT}/${f}`).isDirectory()) continue;
+  version.update(f).update(readFileSync(`${OUT}/${f}`));
+}
+const stamp = version.digest('hex').slice(0, 10);
 let sw = readFileSync(`${OUT}/sw.js`, 'utf8');
-sw = sw.replace("const VERSION = 'dev';", `const VERSION = '${version}';`).replace('const ASSETS = [];', `const ASSETS = ${JSON.stringify(assets)};`);
-if (!sw.includes(version)) throw new Error('prerender: could not stamp sw.js');
+sw = sw.replace("const VERSION = 'dev';", `const VERSION = '${stamp}';`).replace('const ASSETS = [];', `const ASSETS = ${JSON.stringify(assets)};`);
+if (!sw.includes(stamp)) throw new Error('prerender: could not stamp sw.js');
 writeFileSync(`${OUT}/sw.js`, sw);
 
-console.log(`prerendered home (${(html.length / 1024).toFixed(1)} kB), service worker ${version} with ${assets.length} files`);
+console.log(`prerendered home (${(html.length / 1024).toFixed(1)} kB), service worker ${stamp} with ${assets.length} files`);
